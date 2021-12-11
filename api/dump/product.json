@@ -1,0 +1,481 @@
+[{
+	"id": 1,
+	"name": "BOREO",
+	"summary": "Durable and versatile helmet with enhanced protection for climbing and mountaineering",
+	"unit": "Unit(s)",
+	"free_shipping": true,
+	"type": "simple",
+	"slug": [{
+		"lang": "en_US",
+		"value": "boreo-1"
+	}, {
+		"lang": "cs_CZ",
+		"value": "boreo-1"
+	}],
+	"variants": [{
+		"id": 101,
+		"product_id": 1,
+		"price": {
+			"price": 99.99,
+			"original_price": 199.99,
+			"percent_discount": 0.5,
+			"show_discount": true
+		},
+		"badges": [{
+			"name": "New product",
+			"type": "primary"
+		}],
+		"image_urls": [{
+			"url": "/A042FA00-BOREO_LowRes.jpeg"
+		}],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 3.14,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Central stock",
+				"quantity": 11
+			}, {
+				"id": 43,
+				"name": "Stock Prague",
+				"quantity": 2
+			}, {
+				"id": 44,
+				"name": "Stock Pilsen",
+				"quantity": 0
+			}]
+		},
+		"barcode": "6698220042269",
+		"sku": "78113",
+		"attributes": [{
+			"id": 1,
+			"name": "Size",
+			"value": {
+				"id": 42,
+				"name": "L"
+			}
+		}]
+	}, {
+		"id": 111,
+		"product_id": 1,
+		"price": {
+			"price": 104,
+			"original_price": 0,
+			"percent_discount": 0,
+			"show_discount": false
+		},
+		"image_urls": [{
+			"url": "/A042FA00-BOREO_LowRes.jpeg"
+		}],
+		"badges": [],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 100,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Central stock",
+				"quantity": 50
+			}, {
+				"id": 43,
+				"name": "Stock Prague",
+				"quantity": 25
+			}, {
+				"id": 44,
+				"name": "Stock Pilsen",
+				"quantity": 25
+			}]
+		},
+		"barcode": "6698220042270",
+		"sku": "78114",
+		"attributes": [{
+			"id": 1,
+			"name": "Size",
+			"value": {
+				"id": 430,
+				"name": "XL"
+			}
+		}]
+	}],
+	"description": "A durable and protective helmet for all of your adventures! BOREO is great for climbing, via ferrata, canyoning, and caving. The thick shell provides optimal resistance against impacts and scuffs. The design provides greater coverage for enhanced head protection, and is compact and ventilated for maximum comfort.",
+	"files": [{
+		"name": "Download the PDF : technical-notice-MACCHU-2 - 2.76 MB",
+		"file_name": "manual_full_en.pdf",
+		"url": "https://www.petzl.com/sfc/servlet.shepherd/version/download/0681r0000078ZhMAAU",
+		"type": "pdf"
+	}],
+	"manufacturer": {
+		"id": 6,
+		"name": "Petzl"
+	},
+	"features": [{
+		"id": 42,
+		"name": "Foo",
+		"values": [{
+			"id": 42,
+			"name": "Bar"
+		}]
+	}],
+	"alternative_products": [],
+	"suggested_products": [{
+			"id": 5,
+			"name": "Pack of 6 DJINN AXESS quickdraws",
+			"slug": [{
+				"lang": "en_US",
+				"value": "pack-of-6-djinn-axess-quickdraws-5"
+			}, {
+				"lang": "cs_CZ",
+				"value": "pack-of-6-djinn-axess-quickdraws-5"
+			}],
+			"summary": "Pack of six durable quickdraws for rock climbing",
+			"unit": "Unit(s)",
+			"free_shipping": false,
+			"type": "simple",
+			"variants": [{
+				"id": 105,
+				"product_id": 5,
+				"price": {
+					"price": 3000,
+					"original_price": 3000,
+					"percent_discount": 0,
+					"show_discount": false
+				},
+				"badges": [],
+				"image_urls": [{
+					"url": "/M060DA00-PACK-6-DJINN-AXESS-12_LowRes.jpeg"
+				}],
+				"stock": {
+					"in_stock": true,
+					"total_available_quantity": 3,
+					"mode": "always",
+					"locations": [{
+						"id": 42,
+						"name": "Arthur Dent",
+						"quantity": 3
+					}]
+				},
+				"barcode": "6698220042269",
+				"sku": "T-B32",
+				"attributes": [{
+					"id": 1,
+					"name": "Polyester",
+					"value": {
+						"id": 42,
+						"name": "100%"
+					}
+				}]
+			}],
+			"description": "Reliable and durable, the DJINN AXESS quickdraw is especially suited for rock climbing. DJINN carabiners have a wide rope contact zone to limit rope drag and provide greater durability for both carabiner and rope. The design of the bent gate allows the rope to be clipped efficiently. The Keylock system prevents the carabiner from snagging when clipping and unclipping. The pack contains six 12 cm DJINN AXESS quickdraws with blue bent gate carabiners.",
+			"files": [],
+			"manufacturer": {
+				"id": 6,
+				"name": "Petzl"
+			},
+			"features": [{
+				"id": 42,
+				"name": "Foo",
+				"values": [{
+					"id": 42,
+					"name": "Bar"
+				}]
+			}],
+			"alternative_products": [],
+			"suggested_products": []
+		}],
+		"common_content": [{
+			"name": "expansionPanels",
+			"items": ["sizeTable", "description"]
+		}, {
+			"name": "icons",
+			"items": ["14daysChange", "refund", "freeDelivery", "cotton"]
+		}, {
+			"name": "footer",
+			"items": ["loyalty"]
+		}]
+	}, {
+	"id": 2,
+	"name": "MACCHU",
+	"slug": [{
+		"lang": "en_US",
+		"value": "macchu-2"
+	}, {
+		"lang": "cs_CZ",
+		"value": "macchu-2"
+	}],
+	"summary": "Adjustable seat harness for children weighing less than 40 kg",
+	"unit": "Unit(s)",
+	"free_shipping": false,
+	"type": "simple",
+	"variants": [{
+		"id": 102,
+		"product_id": 2,
+		"price": {
+			"price": 20,
+			"original_price": 20,
+			"percent_discount": 0,
+			"show_discount": false
+		},
+		"badges": [{
+			"name": "Sale",
+			"type": "secondary"
+		}],
+		"image_urls": [{
+			"url": "/C015AA00-MACCHU_LowRes.jpeg"
+		}, {
+			"url": "/C015AA-MACCHU-focus-1_LowRes.jpeg"
+		}],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 27,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Arthur Dent",
+				"quantity": 27
+			}]
+		},
+		"barcode": "9005753010352",
+		"sku": "2314",
+		"attributes": [{
+			"id": 1,
+			"name": "Elastan",
+			"value": {
+				"id": 42,
+				"name": "100%"
+			}
+		}]
+	}],
+	"description": "It can adapt as your child grows! MACCHU is an adjustable seat harness for children less than 40 kg. The harness has a wide range of adjustability, allowing it to grow with your child, adapting the harness to their size. For small children, it’s possible to add BODY shoulder straps, converting it into a full-body harness. With padded waistbelt and leg loops, it is very comfortable when hanging. The waistbelt buckles allow you to properly position the tie-in points, and the attachment loop is a different color, for rapid visual inspection of the connection point to the belay system. It also has two gear loops and an accessory loop for a chalk bag, to be just like the grown-ups.",
+	"files": [{
+		"name": "Download the PDF : technical-notice-MACCHU-2 - 2.76 MB",
+		"file_name": "manual_full_en.pdf",
+		"url": "https://www.petzl.com/sfc/servlet.shepherd/version/download/0681r0000078ZhMAAU",
+		"type": "pdf"
+	}],
+	"manufacturer": {
+		"id": 6,
+		"name": "Petzl"
+	},
+	"features": [{
+		"id": 42,
+		"name": "Foo",
+		"values": [{
+			"id": 42,
+			"name": "Bar"
+		}]
+	}],
+	"alternative_products": [],
+	"suggested_products": []
+}, {
+	"id": 3,
+	"name": "GRIGRI",
+	"slug": [{
+		"lang": "en_US",
+		"value": "grigri-3"
+	}, {
+		"lang": "cs_CZ",
+		"value": "grigri-3"
+	}],
+	"summary": "Belay device with cam-assisted blocking and anti-panic handle, particularly suitable for learners and for intensive use",
+	"unit": "Unit(s)",
+	"free_shipping": false,
+	"type": "simple",
+	"variants": [{
+		"id": 103,
+		"product_id": 3,
+		"price": {
+			"price": 39,
+			"original_price": 39,
+			"percent_discount": 0,
+			"show_discount": false
+		},
+		"badges": [],
+		"image_urls": [{
+			"url": "/C015AA00-MACCHU_LowRes.jpeg"
+		}, {
+			"url": "/C015AA-MACCHU-focus-1_LowRes.jpeg"
+		}],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 27,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Arthur Dent",
+				"quantity": 27
+			}]
+		},
+		"barcode": "5908246725938",
+		"sku": "78425",
+		"attributes": [{
+			"id": 1,
+			"name": "Elastan",
+			"value": {
+				"id": 42,
+				"name": "100%"
+			}
+		}]
+	}],
+	"description": "GRIGRI + is a belay device with assisted blocking and an anti-panic handle. The cam-assisted blocking function makes belaying more convenient when a climber is working a route or when catching a fall. The design of the handled camming mechanism enables exceptional descent control. The selector knob allows the user to choose between two belay modes: top-rope or lead climbing. The top-rope mode and the anti-panic handle make the GRIGRI + particularly suitable for learning to belay. Compatible with single ropes from 8.5 to 11 mm. Its stainless steel wear plate makes it suitable for intensive use, both in the gym and at the crag.",
+	"files": [{
+		"name": "Download the PDF : technical-notice-GRIGRI-PLUS-1 - 4.62 MB",
+		"file_name": "manual_full_en.pdf",
+		"url": "https://www.petzl.com/sfc/servlet.shepherd/version/download/0685I000001ypadQAA",
+		"type": "pdf"
+	}],
+	"manufacturer": {
+		"id": 6,
+		"name": "Petzl"
+	},
+	"features": [{
+		"id": 42,
+		"name": "Foo",
+		"values": [{
+			"id": 42,
+			"name": "Bar"
+		}]
+	}],
+	"alternative_products": [],
+	"suggested_products": []
+}, {
+	"id": 4,
+	"name": "CONTACT 9.8 mm",
+	"slug": [{
+		"lang": "en_US",
+		"value": "contact-9-8-mm-4"
+	}, {
+		"lang": "cs_CZ",
+		"value": "contact-9-8-mm-4"
+	}],
+	"summary": "9.8 mm diameter lightweight single rope for gym or rock climbing",
+	"unit": "Unit(s)",
+	"free_shipping": false,
+	"type": "simple",
+	"variants": [{
+		"id": 104,
+		"product_id": 4,
+		"price": {
+			"price": 3000,
+			"original_price": 3000,
+			"percent_discount": 0,
+			"show_discount": false
+		},
+		"badges": [],
+		"image_urls": [{
+			"url": "/R33AC-CONTACT-98-mm_LowRes.jpeg"
+		}, {
+			"url": "/R33AC-CONTACT-98-mm-view-2_LowRes.jpeg"
+		}],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 3,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Arthur Dent",
+				"quantity": 3
+			}]
+		},
+		"barcode": "5908246725938",
+		"sku": "78425",
+		"attributes": [{
+			"id": 1,
+			"name": "Polyester",
+			"value": {
+				"id": 42,
+				"name": "100%"
+			}
+		}]
+	}],
+	"description": "The CONTACT 9.8 mm single rope is designed for gym and rock climbing. It strikes an excellent balance between low weight and durability, for greater versatility. Excellent grip and great handling make for easier manipulation and use of belay devices. The thickness of its sheath also contributes to its durability.",
+	"files": [{
+		"name": "Download the PDF : UE-Declaration-R33A-CONTACT - 0.17 MB",
+		"file_name": "manual_full_en.pdf",
+		"url": "https://www.petzl.com/sfc/servlet.shepherd/version/download/06868000002butAAAQ",
+		"type": "pdf"
+	}, {
+		"name": "Download the PDF : technical-notice-CORDES-DYNAMIQUES-1 - 0.86 MB",
+		"file_name": "manual_full_en.pdf",
+		"url": "https://www.petzl.com/sfc/servlet.shepherd/version/download/06868000001ipZqAAI",
+		"type": "pdf"
+	}],
+	"manufacturer": {
+		"id": 6,
+		"name": "Petzl"
+	},
+	"features": [{
+		"id": 42,
+		"name": "Foo",
+		"values": [{
+			"id": 42,
+			"name": "Bar"
+		}]
+	}],
+	"alternative_products": [],
+	"suggested_products": []
+}, {
+	"id": 5,
+	"name": "Pack of 6 DJINN AXESS quickdraws",
+	"slug": [{
+		"lang": "en_US",
+		"value": "pack-of-6-djinn-axess-quickdraws-5"
+	}, {
+		"lang": "cs_CZ",
+		"value": "pack-of-6-djinn-axess-quickdraws-5"
+	}],
+	"summary": "Pack of six durable quickdraws for rock climbing",
+	"unit": "Unit(s)",
+	"free_shipping": false,
+	"type": "simple",
+	"variants": [{
+		"id": 105,
+		"product_id": 5,
+		"price": {
+			"price": 3000,
+			"original_price": 3000,
+			"percent_discount": 0,
+			"show_discount": false
+		},
+		"badges": [],
+		"image_urls": [{
+			"url": "/M060DA00-PACK-6-DJINN-AXESS-12_LowRes.jpeg"
+		}],
+		"stock": {
+			"in_stock": true,
+			"total_available_quantity": 3,
+			"mode": "always",
+			"locations": [{
+				"id": 42,
+				"name": "Arthur Dent",
+				"quantity": 3
+			}]
+		},
+		"barcode": "6698220042269",
+		"sku": "T-B32",
+		"attributes": [{
+			"id": 1,
+			"name": "Polyester",
+			"value": {
+				"id": 42,
+				"name": "100%"
+			}
+		}]
+	}],
+	"description": "Reliable and durable, the DJINN AXESS quickdraw is especially suited for rock climbing. DJINN carabiners have a wide rope contact zone to limit rope drag and provide greater durability for both carabiner and rope. The design of the bent gate allows the rope to be clipped efficiently. The Keylock system prevents the carabiner from snagging when clipping and unclipping. The pack contains six 12 cm DJINN AXESS quickdraws with blue bent gate carabiners.",
+	"files": [],
+	"manufacturer": {
+		"id": 6,
+		"name": "Petzl"
+	},
+	"features": [{
+		"id": 42,
+		"name": "Foo",
+		"values": [{
+			"id": 42,
+			"name": "Bar"
+		}]
+	}],
+	"alternative_products": [],
+	"suggested_products": []
+}]

@@ -1,0 +1,40 @@
+[{
+	"_id": {
+		"$oid": "611256e1adf1919e11e21993"
+	},
+	"name": "contact_us",
+	"display_name": "Contact Us",
+	"confirm_message": "Thank you!",
+	"fields": [{
+		"name": "first_name",
+		"label": "First Name",
+		"type": "text",
+		"required": "no"
+		}, {
+		"name": "submit",
+		"label": "Send",
+		"type": "submit"
+		}]
+}, {
+	"_id": {
+		"$oid": "611256e1adf1919e11e21994"
+	},
+	"name": "report",
+	"display_name": "Report problem",
+	"confirm_message": "Thank you for your report!",
+	"fields": [{
+		"name": "name",
+		"label": "Name",
+		"type": "text",
+		"required": "yes"
+		}, {
+		"name": "problem_description",
+		"label": "Problem description",
+		"type": "textarea",
+		"required": "yes"
+		}, {
+		"name": "submit",
+		"label": "Send",
+		"type": "submit"
+		}]
+}]

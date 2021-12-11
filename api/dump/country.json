@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6138695baa2a1cfe2722d8a0"
+  },
+  "code": "CZ",
+  "name": "Česká republika"
+},{
+  "_id": {
+    "$oid": "6138697aaa2a1cfe2722d8a1"
+  },
+  "code": "SK",
+  "name": "Slovensko"
+},{
+  "_id": {
+    "$oid": "61386991aa2a1cfe2722d8a2"
+  },
+  "code": "PL",
+  "name": "Polsko"
+},{
+  "_id": {
+    "$oid": "613869adaa2a1cfe2722d8a3"
+  },
+  "code": "DE",
+  "name": "Německo"
+}]

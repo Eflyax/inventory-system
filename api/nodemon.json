@@ -1,0 +1,13 @@
+{
+	"watch": [
+		"src/*"
+	],
+	"ext": "js",
+	"ignore": [
+		"node_modules"
+	],
+	"execMap": {
+		"ts": "ts-node"
+	},
+	"delay": "1"
+}

@@ -1,0 +1,859 @@
+[{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dc7"
+  },
+  "frontend_label": "Product Name",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Product Name",
+  "attribute_id": 73,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 73,
+  "frontend_input": "text",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "name"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dc8"
+  },
+  "attribute_code": "material",
+  "attribute_id": 147,
+  "default_frontend_label": "Material",
+  "default_value": "",
+  "entity_type_id": 4,
+  "frontend_input": "multiselect",
+  "frontend_label": "Material",
+  "id": 147,
+  "is_comparable": false,
+  "is_user_defined": true,
+  "is_visible": true,
+  "is_visible_on_front": true,
+  "options": [
+    {
+      "label": "Burlap",
+      "value": "5458",
+      "sort_order": 0
+    },
+    {
+      "label": "Cocona&reg; performance fabric",
+      "value": "5569",
+      "sort_order": 0
+    },
+    {
+      "label": "Canvas",
+      "value": "5459",
+      "sort_order": 1
+    },
+    {
+      "label": "Wool",
+      "value": "5570",
+      "sort_order": 1
+    },
+    {
+      "label": "Cotton",
+      "value": "5460",
+      "sort_order": 2
+    },
+    {
+      "label": "Fleece",
+      "value": "5571",
+      "sort_order": 2
+    },
+    {
+      "label": "Faux Leather",
+      "value": "5461",
+      "sort_order": 3
+    },
+    {
+      "label": "Hemp",
+      "value": "5572",
+      "sort_order": 3
+    },
+    {
+      "label": "Jersey",
+      "value": "5573",
+      "sort_order": 4
+    },
+    {
+      "label": "Leather",
+      "value": "5462",
+      "sort_order": 4
+    },
+    {
+      "label": "LumaTech&trade;",
+      "value": "5574",
+      "sort_order": 5
+    },
+    {
+      "label": "Mesh",
+      "value": "5463",
+      "sort_order": 5
+    },
+    {
+      "label": "Lycra&reg;",
+      "value": "5575",
+      "sort_order": 6
+    },
+    {
+      "label": "Nylon",
+      "value": "5464",
+      "sort_order": 6
+    },
+    {
+      "label": "Microfiber",
+      "value": "5576",
+      "sort_order": 7
+    },
+    {
+      "label": "Polyester",
+      "value": "5465",
+      "sort_order": 7
+    },
+    {
+      "label": "Rayon",
+      "value": "5466",
+      "sort_order": 8
+    },
+    {
+      "label": "Spandex",
+      "value": "5577",
+      "sort_order": 8
+    },
+    {
+      "label": "HeatTec&reg;",
+      "value": "5578",
+      "sort_order": 9
+    },
+    {
+      "label": "Ripstop",
+      "value": "5467",
+      "sort_order": 9
+    },
+    {
+      "label": "EverCool&trade;",
+      "value": "5579",
+      "sort_order": 10
+    },
+    {
+      "label": "Suede",
+      "value": "5468",
+      "sort_order": 10
+    },
+    {
+      "label": "Foam",
+      "value": "5469",
+      "sort_order": 11
+    },
+    {
+      "label": "Organic Cotton",
+      "value": "5580",
+      "sort_order": 11
+    },
+    {
+      "label": "Metal",
+      "value": "5470",
+      "sort_order": 12
+    },
+    {
+      "label": "TENCEL",
+      "value": "5581",
+      "sort_order": 12
+    },
+    {
+      "label": "CoolTech&trade;",
+      "value": "5582",
+      "sort_order": 13
+    },
+    {
+      "label": "Plastic",
+      "value": "5471",
+      "sort_order": 13
+    },
+    {
+      "label": "Khaki",
+      "value": "5583",
+      "sort_order": 14
+    },
+    {
+      "label": "Rubber",
+      "value": "5472",
+      "sort_order": 14
+    },
+    {
+      "label": "Linen",
+      "value": "5584",
+      "sort_order": 15
+    },
+    {
+      "label": "Synthetic",
+      "value": "5473",
+      "sort_order": 15
+    },
+    {
+      "label": "Stainless Steel",
+      "value": "5474",
+      "sort_order": 16
+    },
+    {
+      "label": "Wool",
+      "value": "5585",
+      "sort_order": 16
+    },
+    {
+      "label": "Silicone",
+      "value": "5475",
+      "sort_order": 17
+    },
+    {
+      "label": "Terry",
+      "value": "5586",
+      "sort_order": 17
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dc9"
+  },
+  "frontend_label": "Special Price From Date",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Special Price From Date",
+  "attribute_id": 79,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 79,
+  "frontend_input": "date",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "special_from_date"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dca"
+  },
+  "frontend_label": "URL Key",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "URL Key",
+  "attribute_id": 123,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 123,
+  "frontend_input": "text",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "url_key"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dcb"
+  },
+  "is_visible_on_front": true,
+  "is_visible": true,
+  "default_value": "",
+  "entity_type_id": 4,
+  "frontend_input": "multiselect",
+  "is_user_defined": true,
+  "frontend_label": "Activity",
+  "default_frontend_label": "Activity",
+  "attribute_id": 145,
+  "options": [
+    {
+      "label": "Hike",
+      "value": "5431",
+      "sort_order": 0
+    },
+    {
+      "label": "Outdoor",
+      "value": "5432",
+      "sort_order": 1
+    },
+    {
+      "label": "Running",
+      "value": "5433",
+      "sort_order": 2
+    },
+    {
+      "label": "Warmup",
+      "value": "5434",
+      "sort_order": 3
+    },
+    {
+      "label": "Yoga",
+      "value": "5435",
+      "sort_order": 4
+    },
+    {
+      "label": "Recreation",
+      "value": "5436",
+      "sort_order": 5
+    },
+    {
+      "label": "Lounge",
+      "value": "5437",
+      "sort_order": 6
+    },
+    {
+      "label": "Gym",
+      "value": "5438",
+      "sort_order": 7
+    },
+    {
+      "label": "Climbing",
+      "value": "5439",
+      "sort_order": 8
+    },
+    {
+      "label": "Crosstraining",
+      "value": "5440",
+      "sort_order": 9
+    },
+    {
+      "label": "Post-workout",
+      "value": "5441",
+      "sort_order": 10
+    },
+    {
+      "label": "Cycling",
+      "value": "5442",
+      "sort_order": 11
+    },
+    {
+      "label": "Athletic",
+      "value": "5443",
+      "sort_order": 12
+    },
+    {
+      "label": "Sports",
+      "value": "5444",
+      "sort_order": 13
+    },
+    {
+      "label": "Hiking",
+      "value": "5445",
+      "sort_order": 14
+    },
+    {
+      "label": "Overnight",
+      "value": "5446",
+      "sort_order": 15
+    },
+    {
+      "label": "School",
+      "value": "5447",
+      "sort_order": 16
+    },
+    {
+      "label": "Trail",
+      "value": "5448",
+      "sort_order": 17
+    },
+    {
+      "label": "Travel",
+      "value": "5449",
+      "sort_order": 18
+    },
+    {
+      "label": "Urban",
+      "value": "5450",
+      "sort_order": 19
+    }
+  ],
+  "id": 145,
+  "is_comparable": true,
+  "attribute_code": "activity"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dcc"
+  },
+  "frontend_label": "Special Price",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Special Price",
+  "attribute_id": 78,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 78,
+  "frontend_input": "price",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "special_price"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dcd"
+  },
+  "frontend_label": "Base",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Base",
+  "attribute_id": 87,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 87,
+  "frontend_input": "media_image",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "image"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dce"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "2",
+  "entity_type_id": 4,
+  "frontend_input": "select",
+  "is_user_defined": false,
+  "frontend_label": "Tax Class",
+  "default_frontend_label": "Tax Class",
+  "attribute_id": 137,
+  "options": [
+    {
+      "label": "None",
+      "value": "0"
+    },
+    {
+      "label": "Taxable Goods",
+      "value": "2"
+    },
+    {
+      "label": "Refund Adjustments",
+      "value": "4"
+    },
+    {
+      "label": "Gift Options",
+      "value": "5"
+    },
+    {
+      "label": "Order Gift Wrapping",
+      "value": "6"
+    },
+    {
+      "label": "Item Gift Wrapping",
+      "value": "7"
+    },
+    {
+      "label": "Printed Gift Card",
+      "value": "8"
+    },
+    {
+      "label": "Reward Points",
+      "value": "9"
+    }
+  ],
+  "id": 137,
+  "is_comparable": false,
+  "attribute_code": "tax_class_id"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dcf"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "",
+  "entity_type_id": 4,
+  "frontend_input": "boolean",
+  "is_user_defined": true,
+  "frontend_label": "Sale",
+  "default_frontend_label": "Sale",
+  "attribute_id": 157,
+  "options": [
+    {
+      "label": "Yes",
+      "value": 1
+    },
+    {
+      "label": "No",
+      "value": 0
+    }
+  ],
+  "id": 157,
+  "is_comparable": false,
+  "attribute_code": "sale"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd0"
+  },
+  "frontend_label": "Special Price To Date",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Special Price To Date",
+  "attribute_id": 80,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 80,
+  "frontend_input": "date",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "special_to_date"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd1"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "5476",
+  "entity_type_id": 4,
+  "frontend_input": "select",
+  "is_user_defined": true,
+  "frontend_label": "Color",
+  "default_frontend_label": "Color",
+  "attribute_id": 93,
+  "options": [
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#000000"
+      },
+      "label": "Black",
+      "value": "5476",
+      "sort_order": 0
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#1857f7"
+      },
+      "label": "Blue",
+      "value": "5477",
+      "sort_order": 1
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#945454"
+      },
+      "label": "Brown",
+      "value": "5478",
+      "sort_order": 2
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#8f8f8f"
+      },
+      "label": "Gray",
+      "value": "5479",
+      "sort_order": 3
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#53a828"
+      },
+      "label": "Green",
+      "value": "5480",
+      "sort_order": 4
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ce64d4"
+      },
+      "label": "Lavender",
+      "value": "5481",
+      "sort_order": 5
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ffffff"
+      },
+      "label": "Multi",
+      "value": "5482",
+      "sort_order": 6
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#eb6703"
+      },
+      "label": "Orange",
+      "value": "5483",
+      "sort_order": 7
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ef3dff"
+      },
+      "label": "Purple",
+      "value": "5484",
+      "sort_order": 8
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ff0000"
+      },
+      "label": "Red",
+      "value": "5485",
+      "sort_order": 9
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ffffff"
+      },
+      "label": "White",
+      "value": "5486",
+      "sort_order": 10
+    },
+    {
+      "swatch": {
+        "type": 1,
+        "value": "#ffd500"
+      },
+      "label": "Yellow",
+      "value": "5487",
+      "sort_order": 11
+    }
+  ],
+  "id": 93,
+  "is_comparable": false,
+  "attribute_code": "color"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd2"
+  },
+  "frontend_label": "Price",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "Price",
+  "attribute_id": 77,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 77,
+  "frontend_input": "price",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "price"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd3"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "1",
+  "entity_type_id": 4,
+  "frontend_input": "select",
+  "is_user_defined": false,
+  "frontend_label": "Enable Product",
+  "default_frontend_label": "Enable Product",
+  "attribute_id": 97,
+  "options": [
+    {
+      "label": "Enabled",
+      "value": 1
+    },
+    {
+      "label": "Disabled",
+      "value": 2
+    }
+  ],
+  "id": 97,
+  "is_comparable": false,
+  "attribute_code": "status"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd4"
+  },
+  "frontend_label": null,
+  "is_visible_on_front": false,
+  "is_visible": false,
+  "default_frontend_label": null,
+  "attribute_id": 124,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 124,
+  "frontend_input": "text",
+  "is_user_defined": false,
+  "is_comparable": false,
+  "attribute_code": "url_path"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd5"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "",
+  "entity_type_id": 4,
+  "frontend_input": "boolean",
+  "is_user_defined": true,
+  "frontend_label": "Erin Recommends",
+  "default_frontend_label": "Erin Recommends",
+  "attribute_id": 155,
+  "options": [
+    {
+      "label": "Yes",
+      "value": 1
+    },
+    {
+      "label": "No",
+      "value": 0
+    }
+  ],
+  "id": 155,
+  "is_comparable": false,
+  "attribute_code": "erin_recommends"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd6"
+  },
+  "frontend_label": "SKU",
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_frontend_label": "SKU",
+  "attribute_id": 74,
+  "default_value": null,
+  "entity_type_id": 4,
+  "id": 74,
+  "frontend_input": "text",
+  "is_user_defined": false,
+  "is_comparable": true,
+  "attribute_code": "sku"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd7"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "5518",
+  "entity_type_id": 4,
+  "frontend_input": "select",
+  "is_user_defined": true,
+  "frontend_label": "Size",
+  "default_frontend_label": "Size",
+  "attribute_id": 152,
+  "options": [
+    {
+      "label": "55 cm",
+      "value": "5518",
+      "sort_order": 0
+    },
+    {
+      "label": "XS",
+      "value": "5593",
+      "sort_order": 1
+    },
+    {
+      "label": "65 cm",
+      "value": "5519",
+      "sort_order": 2
+    },
+    {
+      "label": "S",
+      "value": "5594",
+      "sort_order": 3
+    },
+    {
+      "label": "75 cm",
+      "value": "5520",
+      "sort_order": 4
+    },
+    {
+      "label": "M",
+      "value": "5595",
+      "sort_order": 5
+    },
+    {
+      "label": "6 foot",
+      "value": "5521",
+      "sort_order": 6
+    },
+    {
+      "label": "L",
+      "value": "5596",
+      "sort_order": 7
+    },
+    {
+      "label": "8 foot",
+      "value": "5522",
+      "sort_order": 8
+    },
+    {
+      "label": "XL",
+      "value": "5597",
+      "sort_order": 9
+    },
+    {
+      "label": "10 foot",
+      "value": "5523",
+      "sort_order": 10
+    },
+    {
+      "label": "28",
+      "value": "5598",
+      "sort_order": 11
+    },
+    {
+      "label": "29",
+      "value": "5599",
+      "sort_order": 12
+    },
+    {
+      "label": "30",
+      "value": "5600",
+      "sort_order": 13
+    },
+    {
+      "label": "31",
+      "value": "5601",
+      "sort_order": 14
+    },
+    {
+      "label": "32",
+      "value": "5602",
+      "sort_order": 15
+    },
+    {
+      "label": "33",
+      "value": "5603",
+      "sort_order": 16
+    },
+    {
+      "label": "34",
+      "value": "5604",
+      "sort_order": 17
+    },
+    {
+      "label": "36",
+      "value": "5605",
+      "sort_order": 18
+    },
+    {
+      "label": "38",
+      "value": "5606",
+      "sort_order": 19
+    }
+  ],
+  "id": 152,
+  "is_comparable": false,
+  "attribute_code": "size"
+},{
+  "_id": {
+    "$oid": "6103c28d0901c231ea148dd8"
+  },
+  "is_visible_on_front": false,
+  "is_visible": true,
+  "default_value": "",
+  "entity_type_id": 4,
+  "frontend_input": "boolean",
+  "is_user_defined": true,
+  "frontend_label": "New",
+  "default_frontend_label": "New",
+  "attribute_id": 156,
+  "options": [
+    {
+      "label": "Yes",
+      "value": 1
+    },
+    {
+      "label": "No",
+      "value": 0
+    }
+  ],
+  "id": 156,
+  "is_comparable": false,
+  "attribute_code": "new"
+}]

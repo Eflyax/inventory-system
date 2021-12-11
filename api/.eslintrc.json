@@ -1,0 +1,64 @@
+{
+	"globals": {
+	},
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"sourceType": "module",
+		"requireConfigFile": false
+	},
+	"env": {
+		"es6": true,
+		"node": true
+	},
+	"extends": "eslint:recommended",
+	"rules": {
+		"indent": ["error", "tab", {
+			"SwitchCase": 1
+		}],
+
+		"linebreak-style": ["error", "unix"],
+		"strict": "error",
+
+		"comma-dangle": ["error", {
+			"arrays": "only-multiline"
+		}],
+		"camelcase": ["warn", {
+			"properties": "never"
+		}],
+		"quotes": ["error", "single"],
+		"semi": "error",
+		"no-console": "off",
+		"no-extra-boolean-cast": "off",
+
+		"curly": "error",
+		"no-multiple-empty-lines": ["error", {"max": 1}],
+		"space-before-function-paren": ["error", "never"],
+		"space-before-blocks": "error",
+		"brace-style": ["error", "stroustrup"],
+		"keyword-spacing": "error",
+		"space-infix-ops": "error",
+		"padding-line-between-statements": ["error", {
+			"blankLine": "always", "prev": "*", "next": ["block", "if"]
+		}],
+		"object-property-newline": "error",
+		"key-spacing": "error",
+		"arrow-spacing": ["error", {
+			"before": true,
+			"after": true
+		}],
+
+		"no-undef": "error",
+		"no-unused-vars": "warn",
+		"vars-on-top": "error",
+		"one-var": ["error", {
+			"let": "always",
+			"var": "always",
+			"const": "consecutive"
+		}],
+		"newline-after-var": "error",
+		"one-var-declaration-per-line": ["error", "initializations"],
+		"no-var": "warn",
+		"no-eval": "error"
+	}
+}

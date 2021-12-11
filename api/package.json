@@ -1,0 +1,26 @@
+{
+	"name": "vsf-api",
+	"version": "1.0.0",
+	"description": "vsf-api",
+	"scripts": {
+		"start": "yarn nodemon src/run.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"express-fileupload": "^1.2.1",
+		"lodash": "^4.17.21",
+		"md5": "^2.3.0",
+		"mongoose": "^5.11.4",
+		"multer": "^1.4.3",
+		"nodemon": "^2.0.6"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/eslint-parser": "^7.16.3",
+		"eslint": "^8.2.0"
+	}
+}

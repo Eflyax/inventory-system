@@ -1,0 +1,50 @@
+[{
+	"_id": {
+		"$oid": "9022aabdeda1baba69420000"
+	},
+	"public_runtime_config": {
+		"category": {
+			"pagination": true,
+			"showBreadcrumb": true
+		},
+		"countries": [{
+			"value": "CZ'",
+			"text": "Česká republika"
+		}, {
+			"value": "SK'",
+			"text": "Slovensko"
+		}, {
+			"value": "DE'",
+			"text": "Německo"
+		}],
+		"facebook": {
+			"sign_in": true,
+			"sign_up": true
+		},
+		"order_process": {
+			"cart_multistep": true
+		},
+		"packeta": {
+			"api_key": ""
+		},
+		"product": {
+			"show_breadcrumb": true
+		},
+		"recaptcha": {
+			"enabled": false,
+			"site_key": ""
+		},
+		"registration": {
+			"enabled": true,
+			"oneStep": false
+		}
+	},
+	"private_runtime_config": {
+		"facebook": {
+			"app_id": "966242223397117"
+		},
+		"recaptcha": {
+			"secret_key": ""
+		}
+	}
+}]
