@@ -2,8 +2,10 @@
 	mongoose = require('mongoose'),
 	fs = require('fs'),
 	Product = require('./../product/model/Product.js'),
+	Stock = require('./../stock/model/Stock.js'),
 	mapDumpToModel = {
-		product: Product.model
+		product: Product.model,
+		stock: Stock.model
 	};
 
 module.exports = {

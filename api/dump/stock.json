@@ -1,0 +1,21 @@
+[{
+	"id": 1,
+	"name": "Sklad",
+	"icon": "mdi-broom",
+	"color": "#333333"
+}, {
+	"id": 2,
+	"name": "Modrá ordinace",
+	"icon": "mdi-broom",
+	"color": "#234563"
+}, {
+	"id": 3,
+	"name": "Žlutá ordinace",
+	"icon": "mdi-broom",
+	"color": "#ECE8A7"
+}, {
+	"id": 4,
+	"name": "Vitrína",
+	"icon": "mdi-broom",
+	"color": "#999999"
+}]
