@@ -1,41 +1,9 @@
 ﻿const
-	Address = require('./../address/model/Address.js'),
-	Attribute = require('./../attribute/model/Attribute.js'),
-	Cart = require('./../cart/model/Cart.js'),
-	Category = require('./../category/model/Category.js'),
-	Configuration = require('./../configuration/model/Configuration.js'),
-	Country = require('./../country/model/Country.js'),
-	fs = require('fs'),
-	ContactForm = require('./../contactForm/model/ContactForm.js'),
-	MenuItem = require('./../menu/model/MenuItem.js'),
 	mongoose = require('mongoose'),
-	Order = require('./../order/model/Order.js'),
-	Page = require('./../page/model/Page.js'),
-	PaymentMethod = require('./../paymentMethod/model/PaymentMethod.js'),
+	fs = require('fs'),
 	Product = require('./../product/model/Product.js'),
-	Review = require('./../review/model/Review.js'),
-	ShippingMethod = require('./../shippingMethod/model/ShippingMethod.js'),
-	Snippet = require('./../content/model/Snippet.js'),
-	Translation = require('./../translation/model/Translation.js'),
-	User = require('./../user/model/User.js'),
 	mapDumpToModel = {
-		attribute: Attribute.model,
-		address: Address.model,
-		review: Review.model,
-		configuration: Configuration.model,
-		category: Category.model,
-		snippet: Snippet.model,
-		contactForm: ContactForm.model,
-		menuItem: MenuItem.model,
-		order: Order.model,
-		page: Page.model,
-		product: Product.model,
-		user: User.model,
-		cart: Cart.model,
-		translation: Translation.model,
-		country: Country.model,
-		paymentMethod: PaymentMethod.model,
-		shippingMethod: ShippingMethod.model
+		product: Product.model
 	};
 
 module.exports = {
