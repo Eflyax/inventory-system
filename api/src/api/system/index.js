@@ -3,9 +3,11 @@
 	fs = require('fs'),
 	Product = require('./../product/model/Product.js'),
 	Stock = require('./../stock/model/Stock.js'),
+	User = require('./../user/model/User.js'),
 	mapDumpToModel = {
 		product: Product.model,
-		stock: Stock.model
+		stock: Stock.model,
+		user: User.model
 	};
 
 module.exports = {
