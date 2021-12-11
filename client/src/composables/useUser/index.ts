@@ -2,41 +2,38 @@
 
 const state = reactive({
 	userList: null,
-	user: null,
+	user: localStorage.getItem('user'),
 	loading: null,
 	error: null
 });
 
 export const useUser = () => {
 	const
-		loadUser = async(): Promise<void> => {
+		loadUserList = async(): Promise<void> => {
 			state.loading = true;
 
-			console.log(process.env.BASE_URL + 'user');
-
-			fetch(process.env.BASE_URL + 'user', {method: 'get'})
+			fetch(process.env.API_URL + 'user', {method: 'get'})
 				.then(response => response.json())
 				.then(data => {
-					state.user = data
+					state.userList = data.result
 				});
 
 			state.loading = false;
 		},
-		loadUserList = async(): Promise<void> => {
-			state.loading = true;
+		signIn = (id: number): void => {
+			const user = state.userList.find((userInList) => userInList.id === id);
 
-			fetch('user', {method: 'get'})
-				.then(response => response.json())
-				.then(data => {
-					state.userList = data
-				});
-
-			state.loading = false;
+			localStorage.setItem('user', JSON.stringify(user));
+		},
+		signOut = (): void => {
+			localStorage.removeItem('user');
 		};
 
 	return {
-		loadUser,
+		signIn,
+		signOut,
 		loadUserList,
+		userList: computed(() => state.userList),
 		user: computed(() => state.user),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)

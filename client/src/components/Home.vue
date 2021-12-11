@@ -10,21 +10,21 @@
 </template>
 
 <script lang="ts">
-// import {useGitLog} from '@composables';
+import {useUser} from '@composables';
 
 export const Home = {
 	name: "Home",
 	setup() {
-		// const {load, gitLog} = useGitLog();
+		const {user} = useUser();
 
-		// return {
-		// 	load,
-		// 	gitLog
-		// }
-	},
-	data() {
 		return {
-		};
+			user
+		}
+	},
+	mounted() {
+		if (!this.user) {
+			this.$router.push('/login');
+		}
 	}
 };
 
