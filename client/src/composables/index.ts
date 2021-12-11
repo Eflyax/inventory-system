@@ -1,1 +1,1 @@
-﻿export {useGitLog} from './useGitLog';
+﻿export {useUser} from './useUser';

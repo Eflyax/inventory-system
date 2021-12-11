@@ -1,15 +1,15 @@
 ﻿import {createRouter, createWebHistory} from 'vue-router';
-import Graph from '../components/Graph.vue';
 import Home from '../components/Home.vue';
+import Login from '../components/Login.vue';
 
 const routes = [{
 		path: '/',
 		name: 'Home',
 		component: Home
-},{
-		path: '/graph/:slug',
-		name: 'Graph',
-		component: Graph
+}, {
+		path: '/login',
+		name: 'Login',
+		component: Login
 }];
 
 const router = createRouter({
