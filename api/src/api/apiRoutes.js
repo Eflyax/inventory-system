@@ -10,10 +10,10 @@ router.get('/', function(req, res) {
 });
 
 router.route('/init/').get(controllerSystem.init);
-router.route('/product/:id').get(controllerProduct.getProductDetail);
 router.route('/product/').get(controllerProduct.getProduct);
 router.route('/user/').get(controllerUser.getUsers);
 
+// router.route('/product/:id').get(controllerProduct.getProductDetail);
 // router.route('/user/').get(authMiddleware, controllerUser.getUser);
 
 module.exports = router;

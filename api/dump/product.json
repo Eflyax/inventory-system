@@ -15,4 +15,31 @@
 		}
 	],
 	"quantity": 0
+}, {
+	"id": 2,
+	"name": "Tripak",
+	"price": {
+		"price": 230,
+		"pricePurchase": 200
+	},
+	"icon": "mdi-broom",
+	"variants": [{
+		"name": "Velký",
+		"quantity": 0
+		}, {
+		"name": "Malý",
+		"quantity": 0
+		}
+	],
+	"quantity": 0
+}, {
+	"id": 3,
+	"name": "Solo kartáček",
+	"price": {
+		"price": 230,
+		"pricePurchase": 200
+	},
+	"icon": "mdi-broom",
+	"variants": [],
+	"quantity": 0
 }]

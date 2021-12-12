@@ -1,12 +1,21 @@
 <template>
-	<div class="body">
-		<div class="left-panel"></div>
-		<div class="graph">
-			<!-- <v-btn @click="load">Test</v-btn> -->
+	<v-container>
+		<v-btn>
+			Odepsat položku
+		</v-btn>
 
-		</div>
-		<div class="sidebar"></div>
-	</div>
+		<hr>
+
+		<h2>Nastavení</h2>
+
+		<v-btn to="/settings/product/">
+			Správa produktů
+		</v-btn>
+
+		<v-btn>
+			Správa skladů
+		</v-btn>
+	</v-container>
 </template>
 
 <script lang="ts">
