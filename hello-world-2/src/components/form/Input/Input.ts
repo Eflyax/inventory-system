@@ -1,7 +1,8 @@
 import {textField} from './fieldTypes';
 import fieldTypes from './fieldTypes';
+import Vue from 'vue';
 
-export const Input = {
+export default Vue.extend({
 	name: 'Input',
 	inject: {
 		form: {
@@ -161,6 +162,6 @@ export const Input = {
 			return this.value;
 		}
 	}
-};
+});
 
-export default Input;
+// export default Input;

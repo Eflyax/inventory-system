@@ -297,8 +297,6 @@
 				{{ errorMessage }}
 			</p>
 		</transition>
-
-		errorMessage: {{errorMessage}}
 	</div>
 </template>
 

@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-		<!-- <Input
+		<Input
 			v-model="foo"
 			v-validate="'required'"
 			label="Current password"
 			type="text"
-		/> -->
+		/>
   </div>
 </template>
 
 <script lang="ts">
-// import Input from './../components/form/Input/Input.vue';
+import Vue from 'vue';
 
-export const Home = {
+export default Vue.extend({
 	name: 'Home',
 	components: {
 		// Input
@@ -25,7 +25,6 @@ export const Home = {
 	mounted()  {
 		this.$emit('wef');
 	}
-};
+});
 
-export default Home;
 </script>
