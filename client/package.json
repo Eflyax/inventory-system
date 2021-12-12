@@ -12,7 +12,7 @@
 		"dotenv": "^10.0.0",
 		"raw-loader": "^4.0.2",
 		"roboto-fontface": "*",
-		"vee-validate": "^4.5.7",
+		"vee-validate": "2.2.15",
 		"vue": "^3.2.16",
 		"vue-router": "^4.0.12",
 		"vuetify": "^3.0.0-alpha.0",
