@@ -1,0 +1,53 @@
+.input {
+	$red: #d93025;
+
+	.input-error {
+		color: $red;
+	}
+
+	.label {
+		&.required::after {
+			color: $red;
+			content: ' *';
+			display: inline;
+		}
+	}
+
+	.number-field {
+		align-items: center;
+		display: inline-flex;
+
+		input {
+			-moz-appearance: textfield;
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				margin: 0;
+				-webkit-appearance: none;
+			}
+		}
+		.buttons {
+			display: flex;
+			flex: 0 0 auto;
+			flex-direction: column;
+			height: 100%;
+
+			button {
+				width: 30px;
+				height: 25px;
+			}
+		}
+
+		.loader {
+			align-items: center;
+			display: flex;
+			flex: 0 0 auto;
+			justify-content: center;
+			width: 30px;
+		}
+	}
+
+	.recaptcha {
+		display: none;
+	}
+}
