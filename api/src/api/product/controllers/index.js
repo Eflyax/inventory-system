@@ -2,9 +2,10 @@ const
 	Product = require('./../model/Product.js');
 
 module.exports = {
-	getProduct: async(req, res) => {
+	async getProduct(req, res) {
 		const
-			model = Product.model.find(),
+			query = req.params.id ? {id: req.params.id} : {},
+			model = Product.model.find(query),
 			products = await model.find({});
 
 		res.send({result: products});

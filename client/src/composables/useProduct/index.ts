@@ -11,7 +11,7 @@ export const useProduct = () => {
 		loadProduct = async(id?: number): Promise<void> => {
 			state.loading = true;
 
-			fetch(process.env.API_URL + 'product', {method: 'get'})
+			fetch(process.env.API_URL + 'product/' + id, {method: 'get'})
 				.then(response => response.json())
 				.then(data => {
 					state.product = data.result

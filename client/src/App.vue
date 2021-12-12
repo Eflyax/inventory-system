@@ -1,7 +1,11 @@
 <template>
 	<v-app>
 		<v-app-bar density="compact">
-			<v-app-bar-title>Usmívejte se</v-app-bar-title>
+			<router-link to="/">
+				<v-app-bar-title>
+					Usmívejte se
+				</v-app-bar-title>
+			</router-link>
 		</v-app-bar>
 
 		<v-main>

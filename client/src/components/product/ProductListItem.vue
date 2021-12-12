@@ -13,7 +13,7 @@
 		</v-col>
 
 		<v-col cols="3">
-			<v-btn>
+			<v-btn :to="'/settings/product/edit/' + product.id">
 				<v-icon color="blue">mdi-pencil</v-icon>
 			</v-btn>
 			<v-btn>
