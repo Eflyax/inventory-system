@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   node:
-    container_name: "nodeApi"
+    container_name: "nodeIS"
     image: "node:12.22.0"
     working_dir: '/var/www/html'
     volumes:
@@ -12,7 +12,7 @@ services:
     stdin_open: true
 
   mongo:
-    container_name: "mongo"
+    container_name: "mongoIS"
     image: library/mongo:bionic
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root

@@ -1,34 +1,41 @@
 <template>
-  <div class="home">
-		<Input
-			v-model="foo"
-			v-validate="'required'"
-			label="Current password"
-			type="text"
-		/>
-  </div>
+	<v-container>
+		<v-btn>
+			Odepsat položku
+		</v-btn>
+
+		<hr>
+
+		<h2>Nastavení</h2>
+
+		<v-btn to="/settings/product/">
+			Správa produktů
+		</v-btn>
+
+		<v-btn>
+			Správa skladů
+		</v-btn>
+	</v-container>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import {useUser} from '../composables';
+import {useUser} from '@composables';
 
-export default Vue.extend({
-	name: 'Home',
-	components: {
-		// Input
-	},
-	data() {
+export const Home = {
+	name: "Home",
+	setup() {
+		const {user} = useUser();
+
 		return {
-			foo: 'bar'
-		};
+			user
+		}
 	},
-	mounted()  {
-		const {loadUserList} = useUser();
-
-		loadUserList();
-		// console.log(loadUsers)
+	mounted() {
+		if (!this.user) {
+			this.$router.push('/login');
+		}
 	}
-});
+};
 
+export default Home;
 </script>

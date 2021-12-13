@@ -2,13 +2,13 @@
 
 case "$1" in
 	start)
-		docker start mongo
-		docker start nodeApi
-		docker exec -ti nodeApi npm start
+		docker start mongoIS
+		docker start nodeIS
+		docker exec -ti nodeIS npm start
 		;;
 	stop)
-		docker kill nodeApi
-		docker kill mongo
+		docker kill nodeIS
+		docker kill mongoIS
 		;;
 	status)
 		docker ps -a
