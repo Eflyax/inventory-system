@@ -40,13 +40,12 @@ export const Input = {
 			default: () => []
 		}
 	},
-	setup() {
-		// const {config} = useConfig();
-
-		return {
-			// recaptchaEnabled: config.recaptcha.enabled
-		};
-	},
+	// setup() {
+	// 	// const {config} = useConfig();
+	// 	return {
+	// 		// recaptchaEnabled: config.recaptcha.enabled
+	// 	};
+	// },
 	data() {
 		return {
 			fieldTypes: fieldTypes,

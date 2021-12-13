@@ -45,13 +45,13 @@ export default Vue.extend({
 			default: () => []
 		}
 	},
-	setup() {
-		// const {config} = useConfig();
+	// setup() {
+	// 	// const {config} = useConfig();
 
-		return {
-			// recaptchaEnabled: config.recaptcha.enabled
-		};
-	},
+	// 	return {
+	// 		// recaptchaEnabled: config.recaptcha.enabled
+	// 	};
+	// },
 	data() {
 		return {
 			fieldTypes: fieldTypes,

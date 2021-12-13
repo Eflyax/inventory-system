@@ -11,6 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import {useUser} from '../composables';
 
 export default Vue.extend({
 	name: 'Home',
@@ -23,7 +24,10 @@ export default Vue.extend({
 		};
 	},
 	mounted()  {
-		this.$emit('wef');
+		const {loadUserList} = useUser();
+
+		loadUserList();
+		// console.log(loadUsers)
 	}
 });
 
