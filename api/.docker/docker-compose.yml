@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  node:
+  nodeIS:
     container_name: "nodeIS"
     image: "node:12.22.0"
     working_dir: '/var/www/html'
@@ -11,7 +11,7 @@ services:
       - "${PORT}:${PORT}"
     stdin_open: true
 
-  mongo:
+  mongoIS:
     container_name: "mongoIS"
     image: library/mongo:bionic
     environment:
