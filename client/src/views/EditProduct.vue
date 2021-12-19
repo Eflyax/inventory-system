@@ -1,16 +1,18 @@
 <template>
 	<v-container>
-
-		<!-- <Form
+		{{product}}
+		<my-form
+			v-if="values"
 			style="border: 1px solid red;padding:20px;"
-		> -->
+		>
 			<my-input
+				label="Název porduktu"
 				type="text"
-				v-model="foo"
-				validations="'required|min:6'"
+				v-model="values.name"
+				v-validate="'required'"
 			/>
 
-		<!-- </Form> -->
+		</my-form>
 	</v-container>
 </template>
 
@@ -22,21 +24,26 @@ export const EditProduct = {
 	 components: {
 	},
 	setup() {
-		const {product, loadProduct} = useProduct();
+		const {product, loadProduct, createProduct} = useProduct();
 
 		return {
 			product,
-			loadProduct
+			loadProduct,
+			createProduct
 		}
 	},
 	data() {
 		return {
-			foo: 'bar',
 			values: this.product ? this.product[0]: null
 		}
 	},
 	mounted() {
-		// this.loadProduct(this.$route.params.id);
+		if (this.$route.params.id) {
+			this.loadProduct(this.$route.params.id);
+		}
+		else {
+			this.createProduct();
+		}
 	}
 };
 

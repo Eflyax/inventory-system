@@ -7,4 +7,4 @@
 	</v-form>
 </template>
 
-<script src="./Form.ts" lang="ts" />
+<script src="./MyForm.ts" lang="ts" />

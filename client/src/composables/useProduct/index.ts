@@ -18,10 +18,24 @@ export const useProduct = () => {
 				});
 
 			state.loading = false;
+		},
+		createProduct = () => {
+			state.product = {
+				id: null,
+				name: '',
+				price: {
+					price: 0,
+					purchasePrice: 0
+				},
+				icon: '',
+				variants: [],
+				quantity: 0
+			};
 		};
 
 	return {
 		loadProduct,
+		createProduct,
 		product: computed(() => state.product),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)

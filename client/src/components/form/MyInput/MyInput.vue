@@ -297,10 +297,6 @@
 				{{ errorMessage }}
 			</p>
 		</transition>
-
-itesm:<br>
-
-		{{$parent.errors}}
 	</div>
 </template>
 

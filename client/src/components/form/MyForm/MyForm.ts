@@ -2,8 +2,8 @@ import _ from 'lodash';
 import {textField} from './../MyInput/fieldTypes';
 // import ValidationRules from './ValidationRules';
 
-export const Form = {
-	name: 'Form',
+export const MyForm = {
+	name: 'MyForm',
 	props: {
 		scope: String,
 		autofocus: Boolean
@@ -69,4 +69,4 @@ export const Form = {
 	}
 };
 
-export default Form;
+export default MyForm;
