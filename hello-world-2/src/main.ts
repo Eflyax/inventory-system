@@ -4,9 +4,12 @@ import router from './router'
 import VeeValidate from 'vee-validate';
 import Input from './components/form/Input/Input.vue';
 import Vuetify from 'vuetify';
+
 // import vuetify from './plugins/vuetify';
 // import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+
+import vuetify from './plugins/vuetify'
 
 Vue.component('Input', Input);
 Vue.use(VeeValidate, {events: 'blur'});
@@ -28,6 +31,7 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false;
 
 new Vue({
-	router,
-	render: h => h(App),
+    router,
+    vuetify,
+    render: h => h(App)
 }).$mount('#app')

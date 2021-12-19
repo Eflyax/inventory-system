@@ -29,7 +29,7 @@ export const Home = {
 		const
 			{loadUserList, userList, signIn, user, loading} = useUser();
 
-		loadUserList();
+		// loadUserList();
 
 		return {
 			signIn,
@@ -38,6 +38,9 @@ export const Home = {
 			user,
 			loading
 		}
+	},
+	mounted() {
+		this.loadUserList();
 	},
 	methods: {
 		signInHandler(id: number): void {
