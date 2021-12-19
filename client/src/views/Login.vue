@@ -27,18 +27,20 @@ export const Home = {
 	name: "Home",
 	setup() {
 		const
-			{loadUser, loadUserList, userList, signIn, user, loading} = useUser();
+			{loadUserList, userList, signIn, user, loading} = useUser();
 
-		loadUserList();
+		// loadUserList();
 
 		return {
 			signIn,
-			loadUser,
 			loadUserList,
 			userList,
 			user,
 			loading
 		}
+	},
+	mounted() {
+		this.loadUserList();
 	},
 	methods: {
 		signInHandler(id: number): void {

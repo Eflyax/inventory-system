@@ -1,9 +1,14 @@
 import {textField} from './fieldTypes';
 import fieldTypes from './fieldTypes';
+import Vue from 'vue';
 
-export const Input = {
+export default Vue.extend({
 	name: 'Input',
-	inject: ['form'],
+	inject: {
+		form: {
+			default: null
+		}
+	},
 	props: {
 		disabled: Boolean,
 		hint: String,
@@ -42,6 +47,7 @@ export const Input = {
 	},
 	// setup() {
 	// 	// const {config} = useConfig();
+
 	// 	return {
 	// 		// recaptchaEnabled: config.recaptcha.enabled
 	// 	};
@@ -70,42 +76,39 @@ export const Input = {
 			return this.label;
 		},
 		errorMessage(): string {
-			return '';
-			// const error = this.$parent?.errors.items
-			// 	.find(error => error.field === this.name && error.scope == this.scope);
+			const error = this.$parent.errors.items
+				.find(error => error.field === this.name && error.scope == this.scope);
 
-			// if (error) {
-			// 	return error.msg;
-			// }
+			if (error) {
+				return error.msg;
+			}
 		},
 		required(): boolean {
-			return false;
+			if (this.validationRulesSource
+				&& Array.isArray(this.validationRulesSource)
+				&& this.validationRulesSource.includes('required')) {
+				return true;
+			}
+			else if (this.$vnode.data.directives) {
+				const validationRules = this.$vnode.data.directives.find(directive => {
+					return directive.rawName === 'v-validate';
+				});
 
-			// if (this.validationRulesSource
-			// 	&& Array.isArray(this.validationRulesSource)
-			// 	&& this.validationRulesSource.includes('required')) {
-			// 	return true;
-			// }
-			// else if (this.$vnode?.data.directives) {
-			// 	const validationRules = this.$vnode?.data.directives.find(directive => {
-			// 		return directive.rawName === 'v-validate';
-			// 	});
+				if (validationRules && validationRules.value) {
+					this.rules = validationRules.value;
+					this.parentValidationRule = validationRules.value;
 
-			// 	if (validationRules && validationRules.value) {
-			// 		this.rules = validationRules.value;
-			// 		this.parentValidationRule = validationRules.value;
-
-			// 		if (typeof validationRules.value === 'string') {
-			// 			return validationRules.value.includes('required');
-			// 		}
-			// 		else if (Array.isArray(validationRules.value) && validationRules.value.includes('required')) {
-			// 			return true;
-			// 		}
-			// 		else {
-			// 			return validationRules.value['required'];
-			// 		}
-			// 	}
-			// }
+					if (typeof validationRules.value === 'string') {
+						return validationRules.value.includes('required');
+					}
+					else if (Array.isArray(validationRules.value) && validationRules.value.includes('required')) {
+						return true;
+					}
+					else {
+						return validationRules.value['required'];
+					}
+				}
+			}
 		}
 	},
 	methods: {
@@ -159,6 +162,6 @@ export const Input = {
 			return this.value;
 		}
 	}
-};
+});
 
-export default Input;
+// export default Input;

@@ -1,6 +1,5 @@
 ﻿<template>
 	<div class="input">
-		validations: {{validations}}
 		<label
 			v-if="fixedLabel"
 			:class="{required}"
@@ -301,5 +300,5 @@
 	</div>
 </template>
 
-<script src="./input.ts" lang="ts" />
-<style src="./input.scss" lang="scss" scoped />
+<script src="./Input.ts" lang="ts" />
+<style src="./Input.scss" lang="scss" scoped />

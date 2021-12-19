@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+  <v-app>
 		<v-app-bar density="compact">
 			<router-link to="/">
 				<v-app-bar-title>
@@ -11,24 +11,15 @@
 		<v-main>
 			<router-view />
 		</v-main>
-	</v-app>
+  </v-app>
 </template>
 
-<script>
+<script lang="ts">
 
 export default {
 	name: 'App',
-	setup() {
-		// const {load, gitLog} = useGitLog();
-
-		// return {
-		// 	load,
-		// 	gitLog
-		// };
-	},
 	data: () => ({
 		//
 	}),
-
-}
+};
 </script>

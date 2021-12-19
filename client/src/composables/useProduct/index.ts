@@ -1,4 +1,4 @@
-﻿import {reactive, computed} from 'vue';
+﻿import {reactive, computed} from '@vue/composition-api';
 
 const state = reactive({
 	product: null,
@@ -11,7 +11,7 @@ export const useProduct = () => {
 		loadProduct = async(id?: number): Promise<void> => {
 			state.loading = true;
 
-			fetch(process.env.API_URL + 'product/' + id, {method: 'get'})
+			fetch(process.env.VUE_APP_API_URL + 'product/' + id, {method: 'get'})
 				.then(response => response.json())
 				.then(data => {
 					state.product = data.result

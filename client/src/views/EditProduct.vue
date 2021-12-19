@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import {useProduct} from '@composables';
+import {useProduct} from '../composables';
 
 export const EditProduct = {
 	name: 'EditProduct',
