@@ -1,4 +1,5 @@
 import 'vuetify/dist/vuetify.min.css';
+import '@mdi/font/css/materialdesignicons.css';
 import App from './App.vue'
 import MyInput from './components/form/MyInput/MyInput.vue';
 import MyForm from './components/form/MyForm/MyForm.vue';
