@@ -1,16 +1,16 @@
 <template>
 	<v-container>
 
-		<Form
+		<!-- <Form
 			style="border: 1px solid red;padding:20px;"
-		>
-			<Input
+		> -->
+			<my-input
 				type="text"
 				v-model="foo"
-				validations="'required'"
+				validations="'required|min:6'"
 			/>
 
-		</Form>
+		<!-- </Form> -->
 	</v-container>
 </template>
 

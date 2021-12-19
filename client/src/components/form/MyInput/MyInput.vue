@@ -297,8 +297,12 @@
 				{{ errorMessage }}
 			</p>
 		</transition>
+
+itesm:<br>
+
+		{{$parent.errors}}
 	</div>
 </template>
 
-<script src="./Input.ts" lang="ts" />
-<style src="./Input.scss" lang="scss" scoped />
+<script src="./MyInput.ts" lang="ts" />
+<style src="./MyInput.scss" lang="scss" scoped />

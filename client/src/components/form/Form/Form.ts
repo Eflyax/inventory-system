@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import {textField} from './../Input/fieldTypes';
+import {textField} from './../MyInput/fieldTypes';
 // import ValidationRules from './ValidationRules';
 
 export const Form = {

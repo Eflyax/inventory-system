@@ -1,17 +1,13 @@
-import Vue from 'vue'
+import 'vuetify/dist/vuetify.min.css';
 import App from './App.vue'
+import MyInput from './components/form/MyInput/MyInput.vue';
 import router from './router'
 import VeeValidate from 'vee-validate';
-import Input from './components/form/Input/Input.vue';
+import Vue from 'vue'
+import vuetify from './plugins/vuetify';
 import Vuetify from 'vuetify';
 
-// import vuetify from './plugins/vuetify';
-// import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-
-import vuetify from './plugins/vuetify'
-
-Vue.component('Input', Input);
+Vue.component('MyInput', MyInput);
 Vue.use(VeeValidate, {events: 'blur'});
 
 Vue.use(Vuetify, {
@@ -21,17 +17,12 @@ Vue.use(Vuetify, {
 	theme: {
 		dark: true
 	}
-})
-// Vue.use(Vuetify, {
-// 	theme: {
-// 		defaultTheme: 'dark'
-// 	}
-// });
+});
 
 Vue.config.productionTip = false;
 
 new Vue({
-    router,
-    vuetify,
-    render: h => h(App)
+	router,
+	vuetify,
+	render: h => h(App)
 }).$mount('#app')

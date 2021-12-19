@@ -119,7 +119,7 @@ export default Vue.extend({
 			this.updateValue(parseInt(this.value) - 1);
 		},
 		updateValue(newValue: string | number | boolean): void {
-			const error = null; //this.$parent?.errors.items.find(error => error.field === this.name);
+			const error = this.$parent?.errors.items.find(error => error.field === this.name);
 			let emitEvent;
 
 			if (error) {
