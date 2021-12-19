@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import {useUser} from '@composables';
+import {useUser} from '../composables';
 
 export const Home = {
 	name: "Home",

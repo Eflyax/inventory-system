@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import {useProduct} from '@composables';
+import {useProduct} from '../composables';
 import {SearchProduct} from '../components/SearchProduct.vue';
 
 export const SettingsProduct = {
@@ -19,11 +19,10 @@ export const SettingsProduct = {
 		SearchProduct
 	},
 	setup() {
-		const {user, loadProducts} = useProduct();
+		const {loadProduct} = useProduct();
 
 		return {
-			user,
-			loadProducts
+			loadProduct
 		}
 	},
 	data() {

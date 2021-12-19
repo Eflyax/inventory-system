@@ -1,9 +1,12 @@
 <template>
 	<v-app>
-		<v-app-bar density="compact">
+		<v-main>
+			<v-container>Hello world</v-container>
+		</v-main>
+		<!-- <v-app-bar density="compact">
 			<router-link to="/">
 				<v-app-bar-title>
-					<!-- Usmívejte se -->
+					Usmívejte se
 					Foobar
 				</v-app-bar-title>
 			</router-link>
@@ -11,7 +14,7 @@
 
 		<v-main>
 			<router-view />
-		</v-main>
+		</v-main> -->
 	</v-app>
 </template>
 

@@ -21,19 +21,18 @@
 </template>
 
 <script lang="ts">
-import {useUser} from '@composables';
+import {useUser} from '../composables';
 
 export const Home = {
 	name: "Home",
 	setup() {
 		const
-			{loadUser, loadUserList, userList, signIn, user, loading} = useUser();
+			{loadUserList, userList, signIn, user, loading} = useUser();
 
 		loadUserList();
 
 		return {
 			signIn,
-			loadUser,
 			loadUserList,
 			userList,
 			user,
