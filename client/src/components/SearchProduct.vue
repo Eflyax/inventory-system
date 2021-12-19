@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<v-btn color="green">
+		<v-btn
+			to="/settings/product/edit"
+			color="green"
+		>
 			<v-icon color="white">mdi-plus-circle-outline</v-icon>
 			<span>Přidat</span>
 		</v-btn>

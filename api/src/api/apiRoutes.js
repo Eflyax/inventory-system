@@ -10,7 +10,12 @@ router.get('/', function(req, res) {
 });
 
 router.route('/init/').get(controllerSystem.init);
+// Product
 router.route('/product/:id?').get(controllerProduct.getProduct);
+router.route('/product/').post(controllerProduct.addProduct);
+router.route('/product/:id?').patch(controllerProduct.updateProduct);
+router.route('/product/:id').delete(controllerProduct.deleteProduct);
+
 router.route('/user/').get(controllerUser.getUsers);
 // router.route('/product/:id').get(controllerProduct.getProductDetail);
 // router.route('/user/').get(authMiddleware, controllerUser.getUser);

@@ -13,10 +13,16 @@
 		</v-col>
 
 		<v-col cols="3">
-			<v-btn :to="'/settings/product/edit/' + product.id">
+			<v-btn
+				:to="'/settings/product/edit/' + product.id"
+				color="primary"
+			>
 				<v-icon color="blue">mdi-pencil</v-icon>
 			</v-btn>
-			<v-btn>
+			<v-btn
+				@click="deleteProduct(product.id)"
+				color="red"
+			>
 				<v-icon color="red">mdi-delete</v-icon>
 			</v-btn>
 		</v-col>
@@ -24,10 +30,19 @@
 </template>
 
 <script>
+import {useProduct} from '@composables';
+
 export const ProductListItem = {
 	name: 'ProductListItem',
 	props: {
 		product: Object
+	},
+	setup() {
+		const {deleteProduct} = useProduct();
+
+		return {
+			deleteProduct
+		}
 	}
 };
 

@@ -8,14 +8,62 @@ const state = reactive({
 
 export const useProduct = () => {
 	const
-		loadProduct = async(id?: number): Promise<void> => {
+		loadProduct = async(id = ''): Promise<void> => {
 			state.loading = true;
 
-			fetch(process.env.VUE_APP_API_URL + 'product/' + id, {method: 'get'})
+			await fetch(process.env.VUE_APP_API_URL + 'product/' + id, {method: 'GET'})
 				.then(response => response.json())
 				.then(data => {
 					state.product = data.result
 				});
+
+			state.loading = false;
+		},
+		addProduct = async(values): Promise<void> => {
+			state.loading = true;
+
+			await fetch(process.env.VUE_APP_API_URL + 'product/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(values)
+			})
+				.then(response => response.json())
+				.then(data => {
+					state.product = data.result
+				});
+
+			state.loading = false;
+		},
+		updateProduct = async(values): Promise<void> => {
+			state.loading = true;
+
+			await fetch(process.env.VUE_APP_API_URL + 'product/' + values.id, {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(values)
+			})
+				.then(response => response.json())
+				.then(data => {
+					state.product = data.result
+				});
+
+			state.loading = false;
+		},
+		deleteProduct = async(id): Promise<void> => {
+			state.loading = true;
+
+			await fetch(process.env.VUE_APP_API_URL + 'product/' + id, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+				.then(response => response.json())
+				.then(() => loadProduct());
 
 			state.loading = false;
 		},
@@ -34,8 +82,11 @@ export const useProduct = () => {
 		};
 
 	return {
+		addProduct,
 		loadProduct,
 		createProduct,
+		updateProduct,
+		deleteProduct,
 		product: computed(() => state.product),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)

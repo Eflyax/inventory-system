@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-		<v-app-bar density="compact">
+	<v-app>
+		<v-app-bar app>
 			<router-link to="/">
 				<v-app-bar-title>
 					Usmívejte se
@@ -11,15 +11,22 @@
 		<v-main>
 			<router-view />
 		</v-main>
-  </v-app>
+	</v-app>
 </template>
 
 <script lang="ts">
 
 export default {
-	name: 'App',
-	data: () => ({
-		//
-	}),
+	name: 'App'
 };
 </script>
+
+<style>
+.btn-save {
+	float: right;
+}
+.btn-remove {
+	float: right;
+}
+
+</style>
