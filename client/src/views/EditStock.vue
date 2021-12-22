@@ -11,6 +11,15 @@
 				v-validate="'required'"
 			/>
 
+			<label>Barva skladu</label>
+			<v-color-picker
+				v-model="values.color"
+				dot-size="43"
+				hide-inputs
+				mode="rgba"
+				swatches-max-height="200"
+			></v-color-picker>
+
 			<v-btn
 				class="btn-save"
 				color="green"

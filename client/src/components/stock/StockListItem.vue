@@ -1,6 +1,14 @@
 <template>
 	<v-row>
 		<v-col cols="9">
+			<v-avatar
+				:style="'background-color:' + stock.color + ';'"
+				size="30"
+			>
+				<v-icon>
+					mdi-garage
+				</v-icon>
+			</v-avatar>
 			{{ stock.name }}
 		</v-col>
 
