@@ -4,8 +4,7 @@ const
 		id: Number,
 		name: String,
 		icon: String,
-		color: String,
-		content: Array
+		color: String
 	});
 
 module.exports = {

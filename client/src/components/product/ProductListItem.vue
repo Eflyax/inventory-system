@@ -17,13 +17,13 @@
 				:to="'/settings/product/edit/' + product.id"
 				color="primary"
 			>
-				<v-icon color="blue">mdi-pencil</v-icon>
+				<v-icon>mdi-pencil-outline</v-icon>
 			</v-btn>
 			<v-btn
 				@click="deleteProduct(product.id)"
 				color="red"
 			>
-				<v-icon color="red">mdi-delete</v-icon>
+				<v-icon>mdi-delete</v-icon>
 			</v-btn>
 		</v-col>
 	</v-row>

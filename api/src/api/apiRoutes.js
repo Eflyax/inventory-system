@@ -2,6 +2,7 @@ const
 	router = require('express').Router(),
 	authMiddleware = require('./authMiddleware.js'),
 	controllerProduct = require('./product/controllers/index.js'),
+	controllerStock = require('./stock/controllers/index.js'),
 	controllerSystem = require('./system/index.js'),
 	controllerUser = require('./user/controllers/index.js');
 
@@ -16,6 +17,13 @@ router.route('/product/').post(controllerProduct.addProduct);
 router.route('/product/:id?').patch(controllerProduct.updateProduct);
 router.route('/product/:id').delete(controllerProduct.deleteProduct);
 
+// Stock
+router.route('/stock/:id?').get(controllerStock.getStock);
+router.route('/stock/').post(controllerStock.addStock);
+router.route('/stock/:id?').patch(controllerStock.updateStock);
+router.route('/stock/:id').delete(controllerStock.deleteStock);
+
+// User
 router.route('/user/').get(controllerUser.getUsers);
 // router.route('/product/:id').get(controllerProduct.getProductDetail);
 // router.route('/user/').get(authMiddleware, controllerUser.getUser);

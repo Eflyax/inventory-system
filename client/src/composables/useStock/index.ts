@@ -5,28 +5,28 @@ import VueCompositionAPI from '@vue/composition-api';
 Vue.use(VueCompositionAPI);
 
 const state = reactive({
-	product: null,
+	stock: null,
 	loading: null,
 	error: null
 });
 
-export const useProduct = () => {
+export const useStock = () => {
 	const
-		loadProduct = async(id = ''): Promise<void> => {
+		loadStock = async(id = ''): Promise<void> => {
 			state.loading = true;
 
-			await fetch(process.env.VUE_APP_API_URL + 'product/' + id, {method: 'GET'})
+			await fetch(process.env.VUE_APP_API_URL + 'stock/' + id, {method: 'GET'})
 				.then(response => response.json())
 				.then(data => {
-					state.product = data.result
+					state.stock = data.result
 				});
 
 			state.loading = false;
 		},
-		addProduct = async(values): Promise<void> => {
+		addStock = async(values): Promise<void> => {
 			state.loading = true;
 
-			await fetch(process.env.VUE_APP_API_URL + 'product/', {
+			await fetch(process.env.VUE_APP_API_URL + 'stock/', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -35,15 +35,15 @@ export const useProduct = () => {
 			})
 				.then(response => response.json())
 				.then(data => {
-					state.product = data.result
+					state.stock = data.result
 				});
 
 			state.loading = false;
 		},
-		updateProduct = async(values): Promise<void> => {
+		updateStock = async(values): Promise<void> => {
 			state.loading = true;
 
-			await fetch(process.env.VUE_APP_API_URL + 'product/' + values.id, {
+			await fetch(process.env.VUE_APP_API_URL + 'stock/' + values.id, {
 				method: 'PATCH',
 				headers: {
 					'Content-Type': 'application/json'
@@ -52,46 +52,41 @@ export const useProduct = () => {
 			})
 				.then(response => response.json())
 				.then(data => {
-					state.product = data.result
+					state.stock = data.result
 				});
 
 			state.loading = false;
 		},
-		deleteProduct = async(id): Promise<void> => {
+		deleteStock = async(id): Promise<void> => {
 			state.loading = true;
 
-			await fetch(process.env.VUE_APP_API_URL + 'product/' + id, {
+			await fetch(process.env.VUE_APP_API_URL + 'stock/' + id, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			})
 				.then(response => response.json())
-				.then(() => loadProduct());
+				.then(() => loadStock());
 
 			state.loading = false;
 		},
-		createProduct = () => {
-			state.product = {
+		createStock = () => {
+			state.stock = {
 				id: null,
 				name: '',
-				price: {
-					price: 0,
-					purchasePrice: 0
-				},
 				icon: '',
-				variants: [],
-				quantity: 0
+				color: ''
 			};
 		};
 
 	return {
-		addProduct,
-		loadProduct,
-		createProduct,
-		updateProduct,
-		deleteProduct,
-		product: computed(() => state.product),
+		addStock,
+		loadStock,
+		createStock,
+		updateStock,
+		deleteStock,
+		stock: computed(() => state.stock),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)
 	};

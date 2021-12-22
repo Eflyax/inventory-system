@@ -1,2 +1,3 @@
-﻿export {useUser} from './useUser';
-export {useProduct} from './useProduct';
+﻿export {useProduct} from './useProduct';
+export {useStock} from './useStock';
+export {useUser} from './useUser';

@@ -1,138 +1,96 @@
 <template>
 	<v-container>
-		<h3>Produkt</h3>
-		<v-row no-gutters>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-minus-circle-multiple</v-icon>
-					<p>Odepsat položku</p>
-				</v-card>
-			</v-col>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-plus-circle-multiple</v-icon>
-					<p>Naskladnit položku</p>
-				</v-card>
-			</v-col>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-arrow-right-top</v-icon>
-					<p>Přesunout položku</p>
-				</v-card>
-			</v-col>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-delete-empty</v-icon>
-					<p>Odstranit položku</p>
-				</v-card>
-			</v-col>
-		</v-row>
+		<template
+			v-for="(menuSection, index) in items"
+		>
+			<h3 :key="'h' + index">{{ menuSection.header }}</h3>
 
-		<h3>Sklad</h3>
-		<v-row no-gutters>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
+			<v-row no-gutters :key="'row' + index">
+				<v-col
+					v-for="(menuItem, indexChild) in menuSection.children"
+					cols="6"
+					sm="1"
+					md="3"
+					:key="'c' + indexChild"
+					@click="goToLink(menuItem.link)"
 				>
-					<v-icon>mdi-minus-circle-multiple</v-icon>
-					<p>Odepsat položku</p>
-				</v-card>
-			</v-col>
-		</v-row>
-
-		<h3>Inventura</h3>
-		<v-row no-gutters>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-minus-circle-multiple</v-icon>
-					<p>Odepsat položku</p>
-				</v-card>
-			</v-col>
-		</v-row>
-
-		<h3>Nastavení</h3>
-		<v-row no-gutters>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-toothbrush</v-icon>
-					<p>Produkty</p>
-				</v-card>
-			</v-col>
-			<v-col
-				cols="6"
-				sm="1"
-				md="3"
-			>
-				<v-card
-					class="pa-2 navigation-card"
-					outlined
-					tile
-				>
-					<v-icon>mdi-garage</v-icon>
-					<p>Sklady</p>
-				</v-card>
-			</v-col>
-		</v-row>
+					<v-card
+						class="pa-2 navigation-card"
+						outlined
+						tile
+					>
+						<v-icon>{{ menuItem.icon }}</v-icon>
+						<p>{{ menuItem.text }}</p>
+					</v-card>
+				</v-col>
+			</v-row>
+		</template>
 	</v-container>
 </template>
 
 <script lang="ts">
 	export default {
-		name: 'Home'
+		name: 'Home',
+		methods: {
+			goToLink(link: string): void {
+				if (link) {
+					this.$router.push({name: link});
+				}
+			}
+		},
+		data() {
+			return {
+				items: [{
+					header: 'Produkt',
+					children: [{
+						text: 'Odepsat položku',
+						link: '',
+						icon: 'mdi-minus-circle-multiple',
+					}, {
+						text: 'Naskladnit položku',
+						link: '',
+						icon: 'mdi-plus-circle-multiple',
+					}, {
+						text: 'Přesunout položku',
+						link: '',
+						icon: 'mdi-arrow-right-top',
+					}, {
+						text: 'Odstranit položku',
+						link: '',
+						icon: 'mdi-delete-empty',
+					}]
+				}, {
+					header: 'Sklad',
+					children: [{
+						text: '',
+						link: '',
+						icon: '',
+					}]
+				}, {
+					header: 'Inventura',
+					children: [{
+						text: 'Začít inventuru',
+						link: '',
+						icon: 'mdi-clipboard-edit-outline',
+					}, {
+						text: 'Historie inventur',
+						link: '',
+						icon: 'mdi-clipboard-clock-outline',
+					}]
+				}, {
+					header: 'Nastavení',
+					children: [{
+						text: 'Produkt',
+						link: 'SettingsProduct',
+						icon: 'mdi-toothbrush',
+					}, {
+						text: 'Sklad',
+						link: 'SettingsStock',
+						icon: 'mdi-garage',
+					}]
+				}]
+			};
+		}
 	}
 </script>
 
