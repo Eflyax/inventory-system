@@ -3,7 +3,7 @@
 		<v-app-bar app>
 			<router-link to="/">
 				<v-app-bar-title>
-					Usmívejte se
+					{{ $t('Usmívejte se') }}
 				</v-app-bar-title>
 			</router-link>
 

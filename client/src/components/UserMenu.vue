@@ -50,19 +50,19 @@ export const UserMenu = {
 	data() {
 		return {
 			items: [{
-				title: 'Nastavení',
+				title: this.$t('Nastavení'),
 				icon: 'mdi-cog',
 				link: () => {
-					console.log(this.user);
+					this.$router.push({name: 'UserSettings'});
 				}
 			},{
-				title: 'Přepnout účet',
+				title: this.$t('Přepnout účet'),
 				icon: 'mdi-swap-horizontal',
 				link: () => {
 					this.$router.push({name: 'Login'});
 				}
 			}, {
-				title: 'Odhlásit se',
+				title: this.$t('Odhlásit se'),
 				icon: 'mdi-logout',
 				link: () => {
 					this.setToken('');

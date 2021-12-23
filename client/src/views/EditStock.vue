@@ -5,13 +5,13 @@
 			style="margin: 0 auto;"
 		>
 			<my-input
-				label="Název skladu"
+				:label="$t('Název skladu')"
 				type="text"
 				v-model="values.name"
 				v-validate="'required'"
 			/>
 
-			<label>Barva skladu</label>
+			<label>{{ $t('Barva skladu') }}</label>
 			<v-color-picker
 				v-model="values.color"
 				dot-size="43"
@@ -25,7 +25,7 @@
 				color="green"
 				@click="submit"
 			>
-				Uložit
+				{{ $t('Uložit') }}
 			</v-btn>
 		</my-form>
 	</v-container>

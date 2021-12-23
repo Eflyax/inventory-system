@@ -5,7 +5,7 @@
 			color="green"
 		>
 			<v-icon color="white">mdi-plus-circle-outline</v-icon>
-			<span>Přidat</span>
+			<span>{{ $t('Přidat') }}</span>
 		</v-btn>
 
 		<hr>

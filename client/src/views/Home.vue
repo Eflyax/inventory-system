@@ -41,50 +41,50 @@
 		data() {
 			return {
 				items: [{
-					header: 'Produkt',
+					header: this.$t('Produkt'),
 					children: [{
-						text: 'Odepsat položku',
+						text: this.$t('Odepsat položku'),
 						link: '',
 						icon: 'mdi-minus-circle-multiple',
 					}, {
-						text: 'Naskladnit položku',
+						text: this.$t('Naskladnit položku'),
 						link: '',
 						icon: 'mdi-plus-circle-multiple',
 					}, {
-						text: 'Přesunout položku',
+						text: this.$t('Přesunout položku'),
 						link: '',
 						icon: 'mdi-arrow-right-top',
 					}, {
-						text: 'Odstranit položku',
+						text: this.$t('Odstranit položku'),
 						link: '',
 						icon: 'mdi-delete-empty',
 					}]
 				}, {
-					header: 'Sklad',
+					header: this.$t('Sklad'),
 					children: [{
 						text: '',
 						link: '',
 						icon: '',
 					}]
 				}, {
-					header: 'Inventura',
+					header: this.$t('Inventura'),
 					children: [{
-						text: 'Začít inventuru',
+						text: this.$t('Začít inventuru'),
 						link: '',
 						icon: 'mdi-clipboard-edit-outline',
 					}, {
-						text: 'Historie inventur',
+						text: this.$t('Historie inventur'),
 						link: '',
 						icon: 'mdi-clipboard-clock-outline',
 					}]
 				}, {
-					header: 'Nastavení',
+					header: this.$t('Nastavení'),
 					children: [{
-						text: 'Produkt',
+						text: this.$t('Produkt'),
 						link: 'SettingsProduct',
 						icon: 'mdi-toothbrush',
 					}, {
-						text: 'Sklad',
+						text: this.$t('Sklad'),
 						link: 'SettingsStock',
 						icon: 'mdi-garage',
 					}]

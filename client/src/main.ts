@@ -8,6 +8,15 @@ import VeeValidate from 'vee-validate';
 import Vue from 'vue'
 import vuetify from './plugins/vuetify';
 import Vuetify from 'vuetify';
+import VueI18n from 'vue-i18n'
+import messages from './locales/messages';
+
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+  locale: 'cs',
+  messages,
+});
 
 Vue.component('MyForm', MyForm);
 Vue.component('MyInput', MyInput);
@@ -26,6 +35,7 @@ Vue.use(Vuetify, {
 Vue.config.productionTip = false;
 
 new Vue({
+	i18n,
 	router,
 	vuetify,
 	render: h => h(App)

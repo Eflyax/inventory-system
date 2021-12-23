@@ -5,27 +5,27 @@
 			style="margin: 0 auto;"
 		>
 			<my-input
-				label="Název produktu"
+				:label="$t('Název produktu')"
 				type="text"
 				v-model="values.name"
 				v-validate="'required'"
 			/>
 
 			<my-input
-				label="Cena"
+				:label="$t('Cena')"
 				type="number"
 				v-model="values.price.price"
 				v-validate="'required'"
 			/>
 
 			<my-input
-				label="Nákupní cena"
+				:label="$t('Nákupní cena')"
 				type="number"
 				v-model="values.price.purchasePrice"
 				v-validate="'required'"
 			/>
 
-			<span>Varianty</span>
+			<span>{{ $t('Varianty') }}</span>
 
 			<div v-if="values.variants.length">
 				<div
@@ -34,7 +34,7 @@
 					style="display: flex"
 				>
 					<my-input
-						label="Název varianty"
+						:label="$t('Název varianty')"
 						type="text"
 						v-model="variant.name"
 						v-validate="'required'"
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 			<p v-else>
-				Produkt nemá žádné varianty
+				{{ $t('Produkt nemá žádné varianty') }}
 			</p>
 
 			<v-btn
@@ -67,7 +67,7 @@
 				color="green"
 				@click="submit"
 			>
-				Uložit
+				{{ $t('Uložit') }}
 			</v-btn>
 		</my-form>
 	</v-container>

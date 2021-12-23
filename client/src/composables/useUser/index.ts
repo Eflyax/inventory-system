@@ -14,7 +14,7 @@ const state = reactive({
 
 export const useUser = () => {
 	const
-		{sendGet} = useApi(),
+		{sendGet, sendPatch} = useApi(),
 		loadUserList = async(): Promise<void> => {
 			state.loading = true;
 			state.userList = await sendGet('user');
@@ -34,6 +34,11 @@ export const useUser = () => {
 			state.user = localStorage.getItem('user')
 				? JSON.parse(localStorage.getItem('user'))
 				: null;
+		},
+		updateProfile = async(values) => {
+			state.loading = true;
+			state.userList = await sendPatch('user/' + values.id, values);
+			state.loading = false;
 		};
 
 	return {
@@ -41,6 +46,7 @@ export const useUser = () => {
 		signOut,
 		loadUserList,
 		loadUserFromSession,
+		updateProfile,
 		userList: computed(() => state.userList),
 		user: computed(() => state.user),
 		loading: computed(() => state.loading),

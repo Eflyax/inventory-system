@@ -25,7 +25,7 @@ router.route('/stock/:id').delete(controllerStock.deleteStock);
 
 // User
 router.route('/user/').get(controllerUser.getUsers);
-// router.route('/product/:id').get(controllerProduct.getProductDetail);
+router.route('/user/:id').patch(controllerUser.patchUser);
 // router.route('/user/').get(authMiddleware, controllerUser.getUser);
 
 module.exports = router;

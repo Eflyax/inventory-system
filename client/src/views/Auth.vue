@@ -11,7 +11,7 @@
 				color="green"
 				@click="submit"
 			>
-				Přihlásit se
+				{{ $t('Přihlásit se') }}
 			</v-btn>
 		</my-form>
 	</div>

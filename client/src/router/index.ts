@@ -3,6 +3,7 @@ import EditStock from '../views/EditStock.vue';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Auth from '../views/Auth.vue';
+import UserSettings from '../views/UserSettings.vue';
 import Transaction from '../views/Transaction.vue';
 import SettingsProduct from '../views/SettingsProduct.vue';
 import SettingsStock from '../views/SettingsStock.vue';
@@ -23,6 +24,10 @@ const routes: Array<RouteConfig> = [{
 	path: '/auth',
 	name: 'Auth',
 	component: Auth
+}, {
+	path: '/user-settings',
+	name: 'UserSettings',
+	component: UserSettings
 }, {
 	path: '/transaction/:type?',
 	name: 'Transaction',
