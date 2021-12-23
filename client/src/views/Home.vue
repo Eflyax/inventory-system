@@ -99,4 +99,7 @@
 	cursor: pointer;
 	text-align: center;
 }
+h3 {
+	margin-top: 10px;
+}
 </style>

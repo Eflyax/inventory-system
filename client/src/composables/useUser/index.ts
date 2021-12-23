@@ -1,5 +1,6 @@
-﻿import Vue from 'vue';
-import {reactive, computed} from '@vue/composition-api';
+﻿import {reactive, computed} from '@vue/composition-api';
+import {useApi} from '../useApi';
+import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
 
 Vue.use(VueCompositionAPI);
@@ -13,30 +14,33 @@ const state = reactive({
 
 export const useUser = () => {
 	const
+		{sendGet} = useApi(),
 		loadUserList = async(): Promise<void> => {
 			state.loading = true;
-
-			fetch(process.env.VUE_APP_API_URL + 'user', {method: 'get'})
-				.then(response => response.json())
-				.then(data => {
-					state.userList = data.result
-				});
-
+			state.userList = await sendGet('user');
 			state.loading = false;
 		},
 		signIn = (id: number): void => {
 			const user = state.userList.find((userInList) => userInList.id === id);
 
 			localStorage.setItem('user', JSON.stringify(user));
+			loadUserFromSession();
 		},
 		signOut = (): void => {
 			localStorage.removeItem('user');
+			state.user = null;
+		},
+		loadUserFromSession = () : void => {
+			state.user = localStorage.getItem('user')
+				? JSON.parse(localStorage.getItem('user'))
+				: null;
 		};
 
 	return {
 		signIn,
 		signOut,
 		loadUserList,
+		loadUserFromSession,
 		userList: computed(() => state.userList),
 		user: computed(() => state.user),
 		loading: computed(() => state.loading),

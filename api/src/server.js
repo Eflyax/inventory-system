@@ -39,12 +39,21 @@ module.exports = {
 			next();
 		});
 
+		this.app.use((req, res, next) => {
+			const authHeader = req.headers.authorization;
+
+			if (authHeader && authHeader.replace('Bearer ', '') === process.env.TOKEN) {
+				next();
+			}
+			else {
+				res.sendStatus(401);
+			}
+		});
+
 		this.app.use(bodyParser.json());
 		this.app.use(fileUpload({createParentPath: true}));
 		this.app.use(bodyParser.urlencoded({extended: true}));
 		this.app.use('/', apiRoutes);
-		this.app.use('/rest-api/', apiRoutes);
-		this.app.use('/rest-api/shop/', apiRoutes);
 	},
 
 	/**

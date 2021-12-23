@@ -2,6 +2,8 @@ import EditProduct from '../views/EditProduct.vue';
 import EditStock from '../views/EditStock.vue';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
+import Auth from '../views/Auth.vue';
+import Transaction from '../views/Transaction.vue';
 import SettingsProduct from '../views/SettingsProduct.vue';
 import SettingsStock from '../views/SettingsStock.vue';
 import Vue from 'vue';
@@ -17,6 +19,14 @@ const routes: Array<RouteConfig> = [{
 	path: '/login',
 	name: 'Login',
 	component: Login
+}, {
+	path: '/auth',
+	name: 'Auth',
+	component: Auth
+}, {
+	path: '/transaction/:type?',
+	name: 'Transaction',
+	component: Transaction
 }, {
 	path: '/settings/stock/',
 	name: 'SettingsStock',

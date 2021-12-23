@@ -6,6 +6,9 @@
 					Usmívejte se
 				</v-app-bar-title>
 			</router-link>
+
+			<v-divider vertical class="mx-4" />
+			<user-menu v-if="user" />
 		</v-app-bar>
 
 		<v-main>
@@ -15,9 +18,24 @@
 </template>
 
 <script lang="ts">
+import {UserMenu} from './components/UserMenu.vue';
+import {useUser} from './composables';
 
 export default {
-	name: 'App'
+	name: 'App',
+	components: {
+		UserMenu
+	},
+	setup() {
+		const {user, loadUserFromSession} = useUser();
+
+		loadUserFromSession();
+
+		return {
+			user,
+			loadUserFromSession
+		};
+	}
 };
 </script>
 

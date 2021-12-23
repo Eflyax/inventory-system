@@ -4,19 +4,29 @@
 			class="loader"
 			v-if="loading"
 		></div>
-		<div v-else>
-			<div
-				v-for="(user, index) in userList" :key="index"
-				@click="signInHandler(user.id)"
-				class="avatar"
-			>
-				<v-avatar
-					color="blue"
-					size="60"
-				/>
-				<p>{{ user.name }}</p>
-			</div>
-		</div>
+		<v-container v-else>
+			<v-row no-gutters>
+				<v-col
+					cols="6"
+					sm="1"
+					md="3"
+					v-for="(user, index) in userList" :key="index"
+					@click="signInHandler(user.id)"
+				>
+					<v-card
+						class="pa-2 navigation-card"
+						outlined
+						tile
+					>
+						<v-avatar
+							color="blue"
+							size="100"
+						/>
+						<p>{{ user.name }}</p>
+					</v-card>
+				</v-col>
+			</v-row>
+		</v-container>
 	</div>
 </template>
 
@@ -28,8 +38,6 @@ export const Home = {
 	setup() {
 		const
 			{loadUserList, userList, signIn, user, loading} = useUser();
-
-		// loadUserList();
 
 		return {
 			signIn,

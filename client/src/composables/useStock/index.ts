@@ -1,4 +1,5 @@
 ﻿import Vue from 'vue';
+import {useApi} from '../useApi';
 import {reactive, computed} from '@vue/composition-api';
 import VueCompositionAPI from '@vue/composition-api';
 
@@ -12,63 +13,26 @@ const state = reactive({
 
 export const useStock = () => {
 	const
+		{sendGet, sendDelete, sendPatch, sendPost} = useApi(),
 		loadStock = async(id = ''): Promise<void> => {
 			state.loading = true;
-
-			await fetch(process.env.VUE_APP_API_URL + 'stock/' + id, {method: 'GET'})
-				.then(response => response.json())
-				.then(data => {
-					state.stock = data.result
-				});
-
+			state.stock = await sendGet('stock/' + id);
 			state.loading = false;
 		},
 		addStock = async(values): Promise<void> => {
 			state.loading = true;
-
-			await fetch(process.env.VUE_APP_API_URL + 'stock/', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(values)
-			})
-				.then(response => response.json())
-				.then(data => {
-					state.stock = data.result
-				});
-
+			state.stock = await sendPost('stock/', values);
 			state.loading = false;
 		},
 		updateStock = async(values): Promise<void> => {
 			state.loading = true;
-
-			await fetch(process.env.VUE_APP_API_URL + 'stock/' + values.id, {
-				method: 'PATCH',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(values)
-			})
-				.then(response => response.json())
-				.then(data => {
-					state.stock = data.result
-				});
-
+			state.stock = await sendPatch('stock/' + values.id, values);
 			state.loading = false;
 		},
 		deleteStock = async(id): Promise<void> => {
 			state.loading = true;
-
-			await fetch(process.env.VUE_APP_API_URL + 'stock/' + id, {
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-				.then(response => response.json())
-				.then(() => loadStock());
-
+			await sendDelete('stock/' + id);
+			await loadStock();
 			state.loading = false;
 		},
 		createStock = () => {
