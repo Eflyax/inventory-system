@@ -13,7 +13,7 @@
 
 			<v-autocomplete
 				v-model="values.productToSearch"
-				:items="values.filteredProducts"
+				:items="product || []"
 				:loading="values.loading"
 				:search-input.sync="values.searchInput"
 				chips
@@ -33,9 +33,6 @@
 					</v-list-item>
 				</template>
 				<template v-slot:selection="{item}">
-					<v-icon left>
-						mdi-bitcoin
-					</v-icon>
 					<span v-text="item.name"></span>
 				</template>
 				<template v-slot:item="{ item }">
@@ -49,18 +46,46 @@
 						<v-list-item-title v-text="item.name"></v-list-item-title>
 						<!-- <v-list-item-subtitle v-text="item.symbol"></v-list-item-subtitle> -->
 					</v-list-item-content>
-					<v-list-item-action>
-						<v-icon>mdi-bitcoin</v-icon>
-					</v-list-item-action>
 				</template>
 			</v-autocomplete
 			>
 
+			<template v-if="values.product">
+				<span>{{ $t('Varianty')}}</span>
 
+				<div v-if="values.product.variants.length">
+					<div
+						v-for="(variant, index) in values.product.variants"
+						:key="index"
+						style="display: flex"
+					>
+						<span style="width: 100px;">
+							{{ variant.name }}
+						</span>
+
+						<my-input
+							:label="$t('Počet k naskladnění')"
+							type="number"
+							v-model="variant.quantity"
+							v-validate="'required'"
+							style="flex: 1"
+						/>
+					</div>
+				</div>
+			</template>
+
+			<template v-if="stock">
 				<my-input
+					:label="$t('Naskladnit do') + ':'"
+					type="select"
+					:items="stockItems"
+				/>
+			</template>
+
+				<!-- <my-input
 					type="text"
 					:label="$t('Odkud')"
-				/>
+				/> -->
 
 				<!--
 				- co
@@ -69,7 +94,13 @@
 				- kam
 				- kolik
 				-->
-
+				<v-btn
+					class="btn-save"
+					color="green"
+					@click="submit"
+				>
+					{{ $t('Uložit') }}
+				</v-btn>
 			</my-form>
 		</v-container>
 	</div>
@@ -77,6 +108,7 @@
 
 <script lang="ts">
 import Resources from '../utils/Resources';
+import {useProduct, useStock} from '../composables';
 
 enum EnumTransaction {
 	Sell = 'sell',
@@ -88,18 +120,19 @@ enum EnumTransaction {
 export const Transaction = {
 	name: "Transaction",
 	setup() {
-		// const
-		// 	{loadUserList, userList, signIn, user, loading} = useUser();
+		const
+			{product, searchProduct, loading} = useProduct(),
+			{stock, loadStock} = useStock();
 
-		// loadUserList();
+		loadStock();
 
 		return {
-			// signIn,
-			// loadUserList,
-			// userList,
-			// user,
-			// loading
-		}
+			stock,
+			loadStock,
+			product,
+			searchProduct,
+			loading
+		};
 	},
 	data() {
 		return {
@@ -107,9 +140,9 @@ export const Transaction = {
 			values: {
 				type: EnumTransaction.Sell,
 				productToSearch: '',
-				filteredProducts: [],
 				loading: false,
-				searchInput: null
+				searchInput: null,
+				product: null
 			}
 		};
 	},
@@ -118,6 +151,9 @@ export const Transaction = {
 				this.resources.debounce(() => {
 					this.searchProduct(value);
 				}, 500);
+		},
+		'values.productToSearch'(index) {
+			this.values.product = this.product.find(product => product.id == index);
 		}
 	},
 	computed: {
@@ -132,16 +168,33 @@ export const Transaction = {
 			}
 
 			return result;
-		}
-	},
-	methods: {
-		searchProduct(name): void {
-			console.log({name});
+		},
+		stockItems() {
+			const result = [];
+
+			for (const key in this.stock) {
+				result.push({
+					text: this.stock[key].name,
+					value: this.stock[key].id
+				})
+			}
+
+			return result;
 		}
 	},
 	mounted() {
 		this.resources = new Resources();
 		this.values.type = this.$route.name;
+	},
+	methods: {
+		async submit() {
+			console.log('Ukládám');
+			if (await this.$validator.validate()) {
+				console.log('je to validní');
+
+				console.log(this.values);
+			}
+		}
 	}
 };
 

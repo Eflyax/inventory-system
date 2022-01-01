@@ -17,6 +17,27 @@ module.exports = {
 		await Product.model.create(req.body)
 			.then(result => res.send({result}));
 	},
+	async searchProduct(req, res) {
+		let result = [];
+
+		const
+			onlyInStock = !!req.query.stock,
+			term = req.query.term;
+
+		if (!onlyInStock) {
+			result = await Product.model.find({
+				name: {
+					$regex: '.*' + term + '.*',
+					$options: 'i'
+				}}).limit(10);
+		}
+		else {
+			console.log('tuto nechci');
+			// todo
+		}
+
+		res.send({result});
+	},
 	async updateProduct(req, res) {
 		delete req.body['_id'];
 		delete req.body['__v'];

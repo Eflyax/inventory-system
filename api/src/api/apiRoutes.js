@@ -12,6 +12,7 @@ router.get('/', function(req, res) {
 
 router.route('/init/').get(controllerSystem.init);
 // Product
+router.route('/product/search/').get(controllerProduct.searchProduct);
 router.route('/product/:id?').get(controllerProduct.getProduct);
 router.route('/product/').post(controllerProduct.addProduct);
 router.route('/product/:id?').patch(controllerProduct.updateProduct);

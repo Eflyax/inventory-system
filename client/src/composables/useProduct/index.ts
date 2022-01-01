@@ -47,6 +47,11 @@ export const useProduct = () => {
 				variants: [],
 				quantity: 0
 			};
+		},
+		searchProduct = async(name, inStock = '') => {
+			state.loading = true;
+			state.product = await sendGet(`product/search?stock=${inStock}&term=${name}`);
+			state.loading = false;
 		};
 
 	return {
@@ -54,6 +59,7 @@ export const useProduct = () => {
 		loadProduct,
 		createProduct,
 		updateProduct,
+		searchProduct,
 		deleteProduct,
 		product: computed(() => state.product),
 		loading: computed(() => state.loading),
