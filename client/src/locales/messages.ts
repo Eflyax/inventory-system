@@ -9,6 +9,7 @@ export const messages = {
 		'Odstranit položku': 'Odstranit položku',
 		'Nastavení': 'Nastavení',
 		'Sklad': 'Sklad',
+		'Přehled': 'Přehled',
 		'Přepnout účet': 'Přepnout účet',
 		'Odhlásit se': 'Odhlásit se',
 		'Inventura': 'Inventura',
@@ -22,7 +23,21 @@ export const messages = {
 		'Název varianty': 'Název varianty',
 		'Název skladu': 'Název skladu',
 		'Barva skladu': 'Barva skladu',
-
+		'avatar.isCircle': "Kruhové pozadí",
+		'avatar.circleColor': "Barva pozadí",
+		'avatar.accessoriesType': "Doplněk",
+		'avatar.clotheType': "Oblečení",
+		'avatar.clotheColor': "Barva oblečení",
+		'avatar.facialHairType': "Vousy",
+		'avatar.graphicType': "Potisk trička",
+		'avatar.eyeType': "Oči",
+		'avatar.eyebrowType': "Obočí",
+		'avatar.hairColor': "Barva vlasů",
+		'avatar.mouthType': "Pusa",
+		'avatar.facialHairColor': "Barva vousů",
+		'avatar.skinColor': "Barva pokožky",
+		'avatar.topType': "Vlasy / čepice",
+		'avatar.topColor': "Barva vlasů / čepice",
 	}
 }
 

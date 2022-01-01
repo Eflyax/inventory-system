@@ -8,7 +8,7 @@
 						<v-icon class="arrow" @click="decrement(item)">
 							mdi-arrow-left-box
 						</v-icon>
-						<span>{{ item }}</span>
+						<span>{{ $t('avatar.' + item) }}</span>
 						<v-icon class="arrow" @click="increment(item)">
 							mdi-arrow-right-box
 						</v-icon>
@@ -70,18 +70,18 @@ export const UserSettings = {
 	data() {
 		return {
 			avatar: {
-				isCircle: false,
-				circleColor: '#000000',
+				// isCircle: false,
+				// circleColor: '#000000',
 				accessoriesType: 'Kurt',
 				clotheType: 'GraphicShirt',
 				clotheColor: 'Black',
 				facialHairType: 'BeardMedium',
+				facialHairColor: 'Blonde',
 				graphicType: 'Deer',
 				eyeType: 'Cry',
 				eyebrowType: 'Angry',
 				hairColor: 'Black',
 				mouthType: 'Eating',
-				facialHairColor: 'Blonde',
 				skinColor: 'Pale',
 				topType: 'LongHairStraight',
 				topColor: 'Heather',
@@ -294,6 +294,9 @@ export const UserSettings = {
 			loading,
 			user
 		}
+	},
+	mounted() {
+		this.avatar = this.user.avatar;
 	}
 };
 

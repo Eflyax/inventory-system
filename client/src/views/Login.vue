@@ -18,10 +18,7 @@
 						outlined
 						tile
 					>
-						<v-avatar
-							color="blue"
-							size="100"
-						/>
+						<avataaars v-bind="user.avatar" style="max-width: 100px;"/>
 						<p>{{ user.name }}</p>
 					</v-card>
 				</v-col>
@@ -32,9 +29,13 @@
 
 <script lang="ts">
 import {useUser} from '../composables';
+import Avataaars from 'vuejs-avataaars';
 
 export const Home = {
 	name: "Home",
+	components: {
+		Avataaars
+	},
 	setup() {
 		const
 			{loadUserList, userList, signIn, user, loading} = useUser();

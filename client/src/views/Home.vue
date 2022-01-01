@@ -60,7 +60,7 @@
 						icon: 'mdi-delete-empty',
 					}]
 				}, {
-					header: this.$t('Sklad'),
+					header: this.$t('Přehled'),
 					children: [{
 						text: '',
 						link: '',
