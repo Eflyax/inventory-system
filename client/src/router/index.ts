@@ -29,8 +29,20 @@ const routes: Array<RouteConfig> = [{
 	name: 'UserSettings',
 	component: UserSettings
 }, {
-	path: '/transaction/:type?',
-	name: 'Transaction',
+	path: '/transaction/sell',
+	name: 'sell',
+	component: Transaction
+}, {
+	path: '/transaction/buy',
+	name: 'buy',
+	component: Transaction
+}, {
+	path: '/transaction/move',
+	name: 'move',
+	component: Transaction
+}, {
+	path: '/transaction/remove',
+	name: 'remove',
 	component: Transaction
 }, {
 	path: '/settings/stock/',

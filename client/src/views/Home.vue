@@ -44,19 +44,19 @@
 					header: this.$t('Produkt'),
 					children: [{
 						text: this.$t('Odepsat položku'),
-						link: '',
+						link: 'sell',
 						icon: 'mdi-minus-circle-multiple',
 					}, {
 						text: this.$t('Naskladnit položku'),
-						link: '',
+						link: 'buy',
 						icon: 'mdi-plus-circle-multiple',
 					}, {
 						text: this.$t('Přesunout položku'),
-						link: '',
+						link: 'move',
 						icon: 'mdi-arrow-right-top',
 					}, {
 						text: this.$t('Odstranit položku'),
-						link: '',
+						link: 'remove',
 						icon: 'mdi-delete-empty',
 					}]
 				}, {
