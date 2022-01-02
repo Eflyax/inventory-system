@@ -1,5 +1,6 @@
 const
 	Stock = require('../model/Stock.js'),
+	Transaction = require('../model/Transaction.js'),
 	utils = require('./../../utils.js');
 
 module.exports = {
@@ -33,5 +34,26 @@ module.exports = {
 		Stock.model.deleteOne({id: req.params.id})
 			.then(() => res.send({result: true}))
 			.catch((err) => res.send({error: err}));
+	},
+	async postTransaction(req, res) {
+		console.log('post transaction');
+
+		const newTransaction = {
+			type: req.body.type,
+			author: {
+				id: req.body.author.id,
+				name: req.body.author.name
+			},
+			movement: {
+				name: req.body.product.name,
+				variants: req.body.product.variants,
+				price: req.body.product.price
+			},
+			date: new Date()
+		};
+
+		await Transaction.model.create(newTransaction);
+
+		res.send({result: 'ok'});
 	}
 };

@@ -35,6 +35,43 @@ export const useStock = () => {
 			await loadStock();
 			state.loading = false;
 		},
+		buy = async(product, author): Promise<void> => {
+			console.log('comp - buy');
+			state.loading = true;
+			await sendPost('stock/transaction/', {
+				type: 'buy',
+				movement: {...product},
+				author: author
+			});
+			state.loading = false;
+		},
+		sell = async(product, author): Promise<void> => {
+			state.loading = true;
+			await sendPost('stock/transaction/', {
+				type: 'sell',
+				movement: {},
+				author: author
+			});
+			state.loading = false;
+		},
+		move = async(product, author): Promise<void> => {
+			state.loading = true;
+			await sendPost('stock/transaction/', {
+				type: 'move',
+				movement: {},
+				author: author
+			});
+			state.loading = false;
+		},
+		remove = async(product, author): Promise<void> => {
+			state.loading = true;
+			await sendPost('stock/transaction/', {
+				type: 'remove',
+				movement: {},
+				author: author
+			});
+			state.loading = false;
+		},
 		createStock = () => {
 			state.stock = {
 				id: null,
@@ -50,6 +87,10 @@ export const useStock = () => {
 		createStock,
 		updateStock,
 		deleteStock,
+		buy,
+		sell,
+		move,
+		remove,
 		stock: computed(() => state.stock),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)

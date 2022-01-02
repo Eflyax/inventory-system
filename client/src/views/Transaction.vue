@@ -108,7 +108,8 @@
 
 <script lang="ts">
 import Resources from '../utils/Resources';
-import {useProduct, useStock} from '../composables';
+import {useProduct, useStock, useUser} from '../composables';
+import _ from 'lodash';
 
 enum EnumTransaction {
 	Sell = 'sell',
@@ -122,7 +123,8 @@ export const Transaction = {
 	setup() {
 		const
 			{product, searchProduct, loading} = useProduct(),
-			{stock, loadStock} = useStock();
+			{stock, loadStock, sell, buy, move, remove} = useStock(),
+			{user} = useUser();
 
 		loadStock();
 
@@ -131,7 +133,12 @@ export const Transaction = {
 			loadStock,
 			product,
 			searchProduct,
-			loading
+			loading,
+			sell,
+			buy,
+			move,
+			remove,
+			user
 		};
 	},
 	data() {
@@ -191,6 +198,10 @@ export const Transaction = {
 			console.log('Ukládám');
 			if (await this.$validator.validate()) {
 				console.log('je to validní');
+				console.log('volám typ: ' + this.values.type);
+
+				_.invoke(this, this.values.type, this.values.product, this.user)
+				// lodash ?
 
 				console.log(this.values);
 			}
