@@ -9,8 +9,6 @@
 					v-model="values.type"
 				/>
 
-{{ values }}
-
 			<v-autocomplete
 				v-model="values.productToSearch"
 				:items="product || []"
@@ -201,7 +199,6 @@ export const Transaction = {
 				console.log('volám typ: ' + this.values.type);
 
 				_.invoke(this, this.values.type, this.values.product, this.user)
-				// lodash ?
 
 				console.log(this.values);
 			}

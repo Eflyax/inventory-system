@@ -19,11 +19,12 @@ router.route('/product/:id?').patch(controllerProduct.updateProduct);
 router.route('/product/:id').delete(controllerProduct.deleteProduct);
 
 // Stock
+router.route('/stock/transaction/').get(controllerStock.getTransaction);
+router.route('/stock/transaction/').post(controllerStock.postTransaction);
 router.route('/stock/:id?').get(controllerStock.getStock);
 router.route('/stock/').post(controllerStock.addStock);
 router.route('/stock/:id?').patch(controllerStock.updateStock);
 router.route('/stock/:id').delete(controllerStock.deleteStock);
-router.route('/stock/transaction/').post(controllerStock.postTransaction);
 
 // User
 router.route('/user/').get(controllerUser.getUsers);

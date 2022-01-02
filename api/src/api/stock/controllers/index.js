@@ -35,6 +35,11 @@ module.exports = {
 			.then(() => res.send({result: true}))
 			.catch((err) => res.send({error: err}));
 	},
+	async getTransaction(req, res) {
+		const transactions = await Transaction.model.find();
+
+		res.send({result: transactions});
+	},
 	async postTransaction(req, res) {
 		console.log('post transaction');
 

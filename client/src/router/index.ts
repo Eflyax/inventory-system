@@ -5,6 +5,7 @@ import Login from '../views/Login.vue';
 import Auth from '../views/Auth.vue';
 import UserSettings from '../views/UserSettings.vue';
 import Transaction from '../views/Transaction.vue';
+import Transactions from '../views/Transactions.vue';
 import SettingsProduct from '../views/SettingsProduct.vue';
 import SettingsStock from '../views/SettingsStock.vue';
 import Vue from 'vue';
@@ -44,6 +45,10 @@ const routes: Array<RouteConfig> = [{
 	path: '/transaction/remove',
 	name: 'remove',
 	component: Transaction
+}, {
+	path: '/transactions/',
+	name: 'Transactions',
+	component: Transactions
 }, {
 	path: '/settings/stock/',
 	name: 'SettingsStock',

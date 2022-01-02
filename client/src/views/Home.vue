@@ -62,9 +62,9 @@
 				}, {
 					header: this.$t('Přehled'),
 					children: [{
-						text: '',
-						link: '',
-						icon: '',
+						text: this.$t('Pohyby'),
+						link: 'Transactions',
+						icon: 'mdi-alien',
 					}]
 				}, {
 					header: this.$t('Inventura'),

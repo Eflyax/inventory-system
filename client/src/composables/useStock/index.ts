@@ -7,6 +7,7 @@ Vue.use(VueCompositionAPI);
 
 const state = reactive({
 	stock: null,
+	transaction: null,
 	loading: null,
 	error: null
 });
@@ -36,7 +37,6 @@ export const useStock = () => {
 			state.loading = false;
 		},
 		buy = async(product, author): Promise<void> => {
-			console.log('comp - buy');
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'buy',
@@ -72,6 +72,11 @@ export const useStock = () => {
 			});
 			state.loading = false;
 		},
+		loadTransaction = async() => {
+			state.loading = true;
+			state.transaction = await sendGet('stock/transaction/');
+			state.loading = false;
+		},
 		createStock = () => {
 			state.stock = {
 				id: null,
@@ -91,6 +96,8 @@ export const useStock = () => {
 		sell,
 		move,
 		remove,
+		loadTransaction,
+		transaction: computed(() => state.transaction),
 		stock: computed(() => state.stock),
 		loading: computed(() => state.loading),
 		error: computed(() => state.error)
