@@ -3,7 +3,16 @@
 		<v-container>
 			<ul>
 				<li v-for="(item, index) in transaction" :key="index">
-					{{ item.type }} - {{ getDate(item.date) }}
+					<b>{{ getDate(item.date) }}</b> - {{ item.author.name}} -
+					{{ $t('transactionAction.' + item.type, {woman: item.author.male ? '' : 'a'}) }} -
+
+					{{ item.movement.name }}
+
+					<template v-for="(variant, index) in item.movement.variants">
+						<span :key="index" v-if="variant.quantity">
+							<v-chip>{{ variant.quantity }}x {{ variant.name }}</v-chip>
+						</span>
+					</template>
 				</li>
 			</ul>
 		</v-container>
@@ -33,10 +42,16 @@ export const Transactions = {
 		}
 	},
 	methods: {
-		getDate(foo) {
-			var date = new Date(foo);
+		getDate(isoDate) {
+			const
+				parts = isoDate.split('T'),
+				dateParts = parts[0].split('-'),
+				year = dateParts[0],
+				month = dateParts[1],
+				day = dateParts[2],
+				hours = parts[1].split('.')[0];
 
-			return (date.getDay() + 1) + '.' + (date.getMonth() + 1) + '.' + date.getFullYear() + ' ' + date.getUTCHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+			return day + '.' + month + '.' + year + ' ' + hours;
 		}
 	}
 };

@@ -74,11 +74,16 @@
 
 			<template v-if="stock">
 				<my-input
+					v-model="stockDestinationId"
 					:label="$t('Naskladnit do') + ':'"
 					type="select"
 					:items="stockItems"
 				/>
 			</template>
+
+<pre>
+			{{ values }}
+</pre>
 
 				<!-- <my-input
 					type="text"
@@ -142,12 +147,16 @@ export const Transaction = {
 	data() {
 		return {
 			resources: null,
+			stockDestinationId: null,
+			stockSourceId: null,
 			values: {
 				type: EnumTransaction.Sell,
 				productToSearch: '',
 				loading: false,
 				searchInput: null,
-				product: null
+				product: null,
+				stockSource: null,
+				stockDestination: null
 			}
 		};
 	},
@@ -159,6 +168,12 @@ export const Transaction = {
 		},
 		'values.productToSearch'(index) {
 			this.values.product = this.product.find(product => product.id == index);
+		},
+		'stockDestinationId'(index) {
+			this.values.stockDestination = this.stock.find(stock => stock.id == index);
+		},
+		'stockSourceId'(index) {
+			this.values.stockSource = this.stock.find(stock => stock.id == index);
 		}
 	},
 	computed: {
@@ -198,9 +213,17 @@ export const Transaction = {
 				console.log('je to validní');
 				console.log('volám typ: ' + this.values.type);
 
-				_.invoke(this, this.values.type, this.values.product, this.user)
 
-				console.log(this.values);
+				// movement: {...params.product},
+				// author: params.author,
+				// stockDestination: params.stockDestination
+
+				_.invoke(this, this.values.type, {
+					product:	this.values.product,
+					author: this.user,
+					stockDestination: this.values.stockDestination
+				});
+
 			}
 		}
 	}

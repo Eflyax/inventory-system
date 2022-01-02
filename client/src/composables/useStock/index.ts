@@ -36,12 +36,13 @@ export const useStock = () => {
 			await loadStock();
 			state.loading = false;
 		},
-		buy = async(product, author): Promise<void> => {
+		buy = async(params: {author, product, stockDestination}): Promise<void> => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'buy',
-				movement: {...product},
-				author: author
+				movement: {...params.product},
+				author: params.author,
+				stockDestination: params.stockDestination
 			});
 			state.loading = false;
 		},

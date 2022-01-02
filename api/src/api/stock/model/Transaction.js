@@ -6,7 +6,9 @@ const
 		type: String,
 		author: Object,
 		movement: Object,
-		note: String
+		note: String,
+		stockSource: Object,
+		stockDestination: Object
 	});
 
 module.exports = {

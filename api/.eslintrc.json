@@ -47,7 +47,7 @@
 			"before": true,
 			"after": true
 		}],
-
+		"no-case-declarations": "off",
 		"no-undef": "error",
 		"no-unused-vars": "warn",
 		"vars-on-top": "error",

@@ -3,7 +3,8 @@ let
 	schema = mongoose.Schema({
 		id: String,
 		name: String,
-		avatar: Object
+		avatar: Object,
+		male: Boolean
 	});
 
 module.exports.model = mongoose.model('user', schema, 'user');
