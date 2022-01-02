@@ -7,6 +7,7 @@ export const messages = {
 		'Odkud': 'Odkud',
 		'Žádné výsledky': 'Žádné výsledky',
 		'Usmívejte se': 'Usmívejte se',
+		'Skladem {count} ks': 'Skladem {count} ks',
 		'Odepsat položku': 'Odepsat položku',
 		'Naskladnit položku': 'Naskladnit položku',
 		'Přesunout položku': 'Přesunout položku',

@@ -48,43 +48,59 @@
 			</v-autocomplete
 			>
 
-			<template v-if="values.product">
+			<template v-if="stock">
+				<my-input
+					v-if="values.type !== 'buy' && stockItems.length"
+					v-model="stockSourceId"
+					:label="labelStockSource"
+					type="select"
+					:items="stockItems"
+					v-validate="'required'"
+				/>
+				<span v-else>{{ $t('Tento produkt není nikde skladem') }}</span>
+
+				<my-input
+					v-if="values.type !== 'remove' && values.type !== 'sell'"
+					v-model="stockDestinationId"
+					:label="labelStockDestination"
+					type="select"
+					:items="stockItems"
+					v-validate="'required'"
+				/>
+			</template>
+
+			<template v-if="values.product && stockItems.length">
 				<span>{{ $t('Varianty')}}</span>
 
-				<div v-if="values.product.variants.length">
+				<div v-if="productVariants.length">
 					<div
-						v-for="(variant, index) in values.product.variants"
-						:key="index"
+						v-for="(variant, index) in productVariants"
+						:key="'v' + index"
 						style="display: flex"
 					>
 						<span style="width: 100px;">
-							{{ variant.name }}
+							{{ variant.name }}<br>
+							<span v-if="values.type !== 'buy'">
+								{{ $t('Skladem {count} ks', {count: variant.maxQuantity}) }}
+							</span>
 						</span>
 
 						<my-input
-							:label="$t('Počet k naskladnění')"
+							:key="'vi' + index"
+							:label="labelForVariantQuantity + ' ('+ variant.name +')'"
 							type="number"
 							v-model="variant.quantity"
-							v-validate="'required'"
+							v-validate="'required|min_value:0|max_value:' + variant.maxQuantity"
 							style="flex: 1"
 						/>
 					</div>
 				</div>
 			</template>
 
-			<template v-if="stock">
-				<my-input
-					v-model="stockDestinationId"
-					:label="$t('Naskladnit do') + ':'"
-					type="select"
-					:items="stockItems"
-				/>
-			</template>
-
+productVariants: <br>
 <pre>
-			{{ values }}
+{{productVariants}}
 </pre>
-
 				<!-- <my-input
 					type="text"
 					:label="$t('Odkud')"
@@ -149,6 +165,7 @@ export const Transaction = {
 			resources: null,
 			stockDestinationId: null,
 			stockSourceId: null,
+			productVariants: [],
 			values: {
 				type: EnumTransaction.Sell,
 				productToSearch: '',
@@ -171,12 +188,66 @@ export const Transaction = {
 		},
 		'stockDestinationId'(index) {
 			this.values.stockDestination = this.stock.find(stock => stock.id == index);
+
+			this.values.product.variants.map(variant => {
+				variant.maxQuantity = (Math.max() * -1);
+				variant.quantity = 0;
+			});
+
+			this.productVariants = this.values.product.variants;
 		},
 		'stockSourceId'(index) {
 			this.values.stockSource = this.stock.find(stock => stock.id == index);
+
+			if (this.values.type != 'buy') {
+				const product =  this.values.stockSource.content.find(item => item.id == this.values.product.id);
+
+				product.variants.map(variant => {
+					variant.maxQuantity = variant.quantity;
+					variant.quantity = 0;
+				});
+
+				this.productVariants = product.variants;
+			}
 		}
 	},
 	computed: {
+		labelForVariantQuantity(): string {
+			switch(this.values.type) {
+				case 'buy':
+					return this.$t('Počet k naskladnění');
+				case 'sell':
+					return this.$t('Počet k odepsání');
+				case 'move':
+					return this.$t('Počet k přesunutí');
+				case 'remove':
+					return this.$t('Počet k odstranění');
+			}
+		},
+		labelStockSource(): string {
+			switch(this.values.type) {
+				case 'buy':
+					return '';
+				case 'sell':
+					return this.$t('Odepsat ze skladu');
+				case 'move':
+					return this.$t('Přesunout ze skladu');
+				case 'remove':
+					return this.$t('Odstranit ze skladu');
+			}
+		},
+		labelStockDestination(): string {
+			switch(this.values.type) {
+				case 'buy':
+					return this.$t('Naskladnit do skladu');
+				case 'sell':
+					return '';
+				case 'move':
+					return this.$t('Přesunout do skladu');
+				case 'remove':
+					return '';
+			}
+		},
 		transactionItems() {
 			const result = [];
 
@@ -192,10 +263,26 @@ export const Transaction = {
 		stockItems() {
 			const result = [];
 
-			for (const key in this.stock) {
+			let stocks = this.stock;
+
+			if (this.values.product && this.values.type !== 'buy') {
+				let filteredStocks = [];
+
+				stocks.forEach(stock => {
+					const containedInContent = stock.content.find(item => item.id == this.values.product.id)
+
+					if (containedInContent) {
+						filteredStocks.push(stock);
+					}
+				});
+
+				stocks = filteredStocks;
+			}
+
+			for (const key in stocks) {
 				result.push({
-					text: this.stock[key].name,
-					value: this.stock[key].id
+					text: stocks[key].name,
+					value: stocks[key].id
 				})
 			}
 
@@ -208,16 +295,7 @@ export const Transaction = {
 	},
 	methods: {
 		async submit() {
-			console.log('Ukládám');
 			if (await this.$validator.validate()) {
-				console.log('je to validní');
-				console.log('volám typ: ' + this.values.type);
-
-
-				// movement: {...params.product},
-				// author: params.author,
-				// stockDestination: params.stockDestination
-
 				_.invoke(this, this.values.type, {
 					product:	this.values.product,
 					author: this.user,

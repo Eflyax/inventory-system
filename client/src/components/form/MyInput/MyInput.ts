@@ -27,6 +27,8 @@ export default Vue.extend({
 		validationRulesSource: undefined,
 		validations: String,
 		fixedLabel: Boolean,
+		min: Number,
+		max: Number,
 		type: {
 			type: String,
 			default: fieldTypes.TEXT,
@@ -45,13 +47,6 @@ export default Vue.extend({
 			default: () => []
 		}
 	},
-	// setup() {
-	// 	// const {config} = useConfig();
-
-	// 	return {
-	// 		// recaptchaEnabled: config.recaptcha.enabled
-	// 	};
-	// },
 	data() {
 		return {
 			fieldTypes: fieldTypes,
@@ -164,4 +159,3 @@ export default Vue.extend({
 	}
 });
 
-// export default Input;
