@@ -90,13 +90,29 @@
 							:label="labelForVariantQuantity + ' ('+ variant.name +')'"
 							type="number"
 							v-model="variant.quantity"
-							v-validate="'required|min_value:0|max_value:' + variant.maxQuantity"
+							v-validate="'required|min_value:0'"
 							style="flex: 1"
 						/>
+						<!-- v-validate="'required|min_value:0|max_value:' + variant.maxQuantity" -->
 					</div>
 				</div>
 			</template>
 
+			<template v-if="values.type === 'sell'">
+				<my-input
+					v-model="values.priceType"
+					:label="$t('Typ ceny')"
+					type='radio'
+					:items="[{
+						label: $t('Standardní cena'),
+						value: 'price'
+					}, {
+						label: $t('Nákupní cena'),
+						value: 'purchasePrice'
+					}]"
+					v-validate="'required'"
+				/>
+			</template>
 productVariants: <br>
 <pre>
 {{productVariants}}
@@ -173,7 +189,8 @@ export const Transaction = {
 				searchInput: null,
 				product: null,
 				stockSource: null,
-				stockDestination: null
+				stockDestination: null,
+				priceType: 'price'
 			}
 		};
 	},
@@ -214,37 +231,37 @@ export const Transaction = {
 	computed: {
 		labelForVariantQuantity(): string {
 			switch(this.values.type) {
-				case 'buy':
+				case EnumTransaction.Buy:
 					return this.$t('Počet k naskladnění');
-				case 'sell':
+				case EnumTransaction.Sell:
 					return this.$t('Počet k odepsání');
-				case 'move':
+				case EnumTransaction.Move:
 					return this.$t('Počet k přesunutí');
-				case 'remove':
+				case EnumTransaction.Remove:
 					return this.$t('Počet k odstranění');
 			}
 		},
 		labelStockSource(): string {
 			switch(this.values.type) {
-				case 'buy':
+				case EnumTransaction.Buy:
 					return '';
-				case 'sell':
+				case EnumTransaction.Sell:
 					return this.$t('Odepsat ze skladu');
-				case 'move':
+				case EnumTransaction.Move:
 					return this.$t('Přesunout ze skladu');
-				case 'remove':
+				case EnumTransaction.Remove:
 					return this.$t('Odstranit ze skladu');
 			}
 		},
 		labelStockDestination(): string {
 			switch(this.values.type) {
-				case 'buy':
+				case EnumTransaction.Buy:
 					return this.$t('Naskladnit do skladu');
-				case 'sell':
+				case EnumTransaction.Sell:
 					return '';
-				case 'move':
+				case EnumTransaction.Move:
 					return this.$t('Přesunout do skladu');
-				case 'remove':
+				case EnumTransaction.Remove:
 					return '';
 			}
 		},
@@ -295,13 +312,27 @@ export const Transaction = {
 	},
 	methods: {
 		async submit() {
+			this.values.product.variants = this.productVariants;
+
+			console.log({valud: await this.$validator.validate()});
+
+			console.log({typ: this.values.type});
+			console.log({
+				product:	this.values.product,
+				author: this.user,
+				stockDestination: this.values.stockDestination
+			});
+
 			if (await this.$validator.validate()) {
+				// send_
+
 				_.invoke(this, this.values.type, {
 					product:	this.values.product,
 					author: this.user,
-					stockDestination: this.values.stockDestination
+					stockSourceId: this.stockSourceId,
+					stockDestinationId: this.stockDestinationId,
+					priceType: this.values.priceType
 				});
-
 			}
 		}
 	}

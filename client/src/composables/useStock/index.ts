@@ -36,40 +36,48 @@ export const useStock = () => {
 			await loadStock();
 			state.loading = false;
 		},
-		buy = async(params: {author, product, stockDestination}): Promise<void> => {
+		buy = async(params: {author, product, stockDestination, stockSource}): Promise<void> => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'buy',
 				movement: {...params.product},
 				author: params.author,
-				stockDestination: params.stockDestination
+				stockDestinationId: params.stockDestination,
+				stockSourceId: null
 			});
 			state.loading = false;
 		},
-		sell = async(product, author): Promise<void> => {
+		sell = async(params: {author, product, stockDestinationId, stockSourceId, priceType}): Promise<void> => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'sell',
-				movement: {},
-				author: author
+				movement: {...params.product},
+				author: params.author,
+				stockDestinationId: null,
+				stockSourceId: params.stockSourceId,
+				priceType: params.priceType
 			});
 			state.loading = false;
 		},
-		move = async(product, author): Promise<void> => {
+		move = async(params: {author, product, stockDestinationId, stockSourceId}): Promise<void> => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'move',
-				movement: {},
-				author: author
+				movement: {}, // todo
+				author: params.author,
+				stockDestinationId: null, // todo
+				stockSourceId: null // todo
 			});
 			state.loading = false;
 		},
-		remove = async(product, author): Promise<void> => {
+		remove = async(params: {author, product, stockDestinationId, stockSourceId}): Promise<void> => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'remove',
 				movement: {},
-				author: author
+				author: params.author,
+				stockDestinationId: null,
+				stockSourceId: null
 			});
 			state.loading = false;
 		},

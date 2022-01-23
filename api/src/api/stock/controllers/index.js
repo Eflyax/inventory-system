@@ -43,7 +43,10 @@ module.exports = {
 		res.send({result: transactions});
 	},
 	async postTransaction(req, res) {
-		await Transaction.model.create({
+
+		console.log({body: req.body});
+
+		const newTransaction = {
 			type: req.body.type,
 			author: {
 				id: req.body.author.id,
@@ -58,12 +61,32 @@ module.exports = {
 			},
 			date: new Date(),
 			stockSource: null,
-			stockDestination: {
-				id: req.body.stockDestination.id,
-				name: req.body.stockDestination.name,
-				color: req.body.stockDestination.color
-			}
-		});
+			stockDestination: null
+		};
+
+		if (req.body.stockDestinationId) {
+			const stock = await Stock.model.findOne({id: req.body.stockSourceId});
+
+			newTransaction.stockDestination = {
+				id: stock.id,
+				name: stock.name,
+				color: stock.color
+			};
+		}
+
+		if (req.body.stockSourceId) {
+			const stock = await Stock.model.findOne({id: req.body.stockSourceId});
+
+			newTransaction.stockSource = {
+				id: stock.id,
+				name: stock.name,
+				color: stock.color
+			};
+		}
+
+		// console.log({ukladam: newTransaction});
+
+		await Transaction.model.create(newTransaction);
 
 		switch (req.body.type) {
 			case 'buy':
@@ -98,7 +121,7 @@ module.exports = {
 				);
 				break;
 			default:
-				console.log('neuděláš nic');
+				console.log('Neimplementovaná akce nic');
 		}
 		// todo - vložit věc do skladu
 
