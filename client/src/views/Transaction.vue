@@ -48,9 +48,9 @@
 			</v-autocomplete
 			>
 
-			<template v-if="stock">
+			<template v-if="stock && stockItems.length">
 				<my-input
-					v-if="values.type !== 'buy' && stockItems.length"
+					v-if="values.type === 'remove' || values.type === 'sell'"
 					v-model="stockSourceId"
 					:label="labelStockSource"
 					type="select"
@@ -60,7 +60,7 @@
 				<span v-else>{{ $t('Tento produkt není nikde skladem') }}</span>
 
 				<my-input
-					v-if="values.type !== 'remove' && values.type !== 'sell'"
+					v-if="values.type === 'buy'"
 					v-model="stockDestinationId"
 					:label="labelStockDestination"
 					type="select"
@@ -316,16 +316,8 @@ export const Transaction = {
 
 			console.log({valud: await this.$validator.validate()});
 
-			console.log({typ: this.values.type});
-			console.log({
-				product:	this.values.product,
-				author: this.user,
-				stockDestination: this.values.stockDestination
-			});
-
 			if (await this.$validator.validate()) {
 				// send_
-
 				_.invoke(this, this.values.type, {
 					product:	this.values.product,
 					author: this.user,

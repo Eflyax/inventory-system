@@ -1,6 +1,7 @@
 const
 	Stock = require('../model/Stock.js'),
 	Transaction = require('../model/Transaction.js'),
+	MovementService = require('../model/MovementService.js'),
 	utils = require('./../../utils.js');
 
 module.exports = {
@@ -43,7 +44,6 @@ module.exports = {
 		res.send({result: transactions});
 	},
 	async postTransaction(req, res) {
-
 		console.log({body: req.body});
 
 		const newTransaction = {
@@ -65,12 +65,11 @@ module.exports = {
 		};
 
 		if (req.body.stockDestinationId) {
-			const stock = await Stock.model.findOne({id: req.body.stockSourceId});
+			const stock = await Stock.model.findOne({id: req.body.stockDestinationId});
 
 			newTransaction.stockDestination = {
 				id: stock.id,
-				name: stock.name,
-				color: stock.color
+				name: stock.name
 			};
 		}
 
@@ -79,52 +78,32 @@ module.exports = {
 
 			newTransaction.stockSource = {
 				id: stock.id,
-				name: stock.name,
-				color: stock.color
+				name: stock.name
 			};
 		}
 
-		// console.log({ukladam: newTransaction});
-
 		await Transaction.model.create(newTransaction);
+
+		console.log({reqTypr: req.body.type});
 
 		switch (req.body.type) {
 			case 'buy':
-				const
-					stockToUpdate = await Stock.model.findOne({id: req.body.stockDestination.id}),
-					existingItem = stockToUpdate.content.find(item => item.id == req.body.movement.id);
-
-				if (existingItem) { // neexistuje
-					let totalQuantity = 0;
-
-					req.body.movement.variants.forEach(variantToUpdate => {
-						const existingVariant = existingItem.variants.find(variant => variant.name === variantToUpdate.name);
-
-						existingVariant.quantity = (parseInt(existingVariant.quantity) + parseInt(variantToUpdate.quantity));
-						totalQuantity += existingVariant.quantity;
-					});
-					existingItem.quantity = totalQuantity;
-				}
-				else {
-					let totalQuantity = 0;
-
-					req.body.movement.variants.forEach(element => {
-						totalQuantity += parseInt(element.quantity);
-					});
-					req.body.movement.quantity = totalQuantity;
-					stockToUpdate.content.push(req.body.movement);
-				}
-
-				await Stock.model.updateOne(
-					{id: req.body.stockDestination.id},
-					{content: stockToUpdate.content}
-				);
+				await MovementService.addProductToStock(newTransaction.movement, req.body.stockDestinationId);
+				break;
+			case 'sell':
+				await MovementService.removeProductFromStock(newTransaction.movement, req.body.stockSourceId);
+				break;
+			case 'move':
+				await MovementService.removeProductFromStock(newTransaction.movement, req.body.stockSourceId);
+				await MovementService.addProductToStock(newTransaction.movement, req.body.stockDestinationId);
+				break;
+			case 'remove':
+				await MovementService.removeProductFromStock(newTransaction.movement, req.body.stockSourceId);
 				break;
 			default:
 				console.log('Neimplementovaná akce nic');
 		}
-		// todo - vložit věc do skladu
 
-		res.send({result: 'ok'});
+		res.send({result: true});
 	}
 };
