@@ -45,12 +45,11 @@
 						<!-- <v-list-item-subtitle v-text="item.symbol"></v-list-item-subtitle> -->
 					</v-list-item-content>
 				</template>
-			</v-autocomplete
-			>
+			</v-autocomplete>
 
 			<template v-if="stock && stockItems.length">
 				<my-input
-					v-if="values.type === 'remove' || values.type === 'sell'"
+					v-if="values.type === 'move' || values.type === 'remove' || values.type === 'sell'"
 					v-model="stockSourceId"
 					:label="labelStockSource"
 					type="select"
@@ -60,7 +59,7 @@
 				<span v-else>{{ $t('Tento produkt není nikde skladem') }}</span>
 
 				<my-input
-					v-if="values.type === 'buy'"
+					v-if="values.type === 'buy' || values.type === 'move'"
 					v-model="stockDestinationId"
 					:label="labelStockDestination"
 					type="select"
@@ -282,19 +281,19 @@ export const Transaction = {
 
 			let stocks = this.stock;
 
-			if (this.values.product && this.values.type !== 'buy') {
-				let filteredStocks = [];
+			// if (this.values.product && this.values.type !== 'buy') {
+			// 	let filteredStocks = [];
 
-				stocks.forEach(stock => {
-					const containedInContent = stock.content.find(item => item.id == this.values.product.id)
+			// 	stocks.forEach(stock => {
+			// 		const containedInContent = stock.content.find(item => item.id == this.values.product.id)
 
-					if (containedInContent) {
-						filteredStocks.push(stock);
-					}
-				});
+			// 		if (containedInContent) {
+			// 			filteredStocks.push(stock);
+			// 		}
+			// 	});
 
-				stocks = filteredStocks;
-			}
+			// 	stocks = filteredStocks;
+			// }
 
 			for (const key in stocks) {
 				result.push({

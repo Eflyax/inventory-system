@@ -12,13 +12,23 @@ async function removeProductFromStock(product, stockId) {
 async function makeMovement(product, stockId, add) {
 	const
 		stockToUpdate = await Stock.model.findOne({id: stockId}),
-		existingItem = stockToUpdate.content.find(item => item.id == product.id);
+		existingItem = stockToUpdate.content.find(item => item.id == product.id),
+		indexOfExistingItem = stockToUpdate.content.findIndex(item => item.name === existingItem.name);
 
 	if (existingItem) {
 		let totalQuantity = 0;
 
-		product.variants.forEach(variantToUpdate => {
-			const existingVariant = existingItem.variants.find(variant => variant.name === variantToUpdate.name);
+		product.variants.forEach((variantToUpdate, index) => {
+			let
+				existingVariant = existingItem.variants.find(variant => variant.name === variantToUpdate.name);
+
+			if (!existingVariant) {
+				existingVariant = Object.assign({}, variantToUpdate);
+				existingVariant.quantity = 0;
+
+				existingItem.variants.push(existingVariant);
+				stockToUpdate.content[indexOfExistingItem] = existingItem;
+			}
 
 			existingVariant.quantity = add
 				? (parseInt(existingVariant.quantity) + parseInt(variantToUpdate.quantity))
@@ -44,6 +54,7 @@ async function makeMovement(product, stockId, add) {
 				totalQuantity -= parseInt(element.quantity);
 			}
 		});
+
 		product.quantity = totalQuantity;
 		stockToUpdate.content.push(product);
 	}

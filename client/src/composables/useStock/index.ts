@@ -65,10 +65,10 @@ export const useStock = () => {
 			state.loading = true;
 			await sendPost('stock/transaction/', {
 				type: 'move',
-				movement: {}, // todo
+				movement: {...params.product},
 				author: params.author,
-				stockDestinationId: null, // todo
-				stockSourceId: null // todo
+				stockDestinationId: params.stockDestinationId,
+				stockSourceId: params.stockSourceId
 			});
 			state.loading = false;
 		},
